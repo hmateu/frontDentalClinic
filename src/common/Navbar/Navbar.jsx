@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css"
 const Navbar = () => {
+    const navigate = useNavigate();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const toggleMobileMenu = () => {
         // console.log(isMobileMenuOpen)
@@ -25,10 +27,11 @@ const Navbar = () => {
                 {/* Barra de navegación */}
             </nav>
             <ul className={`nav-menu ${isMobileMenuOpen ? 'mobile' : 'hidden'}`}>
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Register</a></li>
-                <li><a href="/contacto">Contacto</a></li>
+                <li onClick={()=>navigate("/")}>INICIO</li>
+                <li onClick={()=>navigate("/login")}>LOGIN</li>
+                <li onClick={()=>navigate("/register")}>REGISTRO</li>
+                <li onClick={()=>navigate("/treatments")}>SERVICIOS</li>
+                <li onClick={()=>navigate("/appointments")}>CITAS</li>
             </ul>
         </>
     );

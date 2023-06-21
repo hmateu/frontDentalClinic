@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #f2f2f2; */
     padding: 10px 20px;
     overflow: visible;
     z-index: 2;
@@ -21,11 +20,7 @@
 
 .nav-menu li {
     margin-left: 10px;
-}
-
-.nav-menu li a {
-    text-decoration: none;
-    color: black;
+    cursor: pointer;
 }
 
 .mobile-menu-icon {
@@ -54,20 +49,20 @@
     .nav-menu.mobile {
         display: flex;
         flex-direction: column;
-        background-color: rgba(255, 255, 255, 0.80);
+        align-items: center;
+        background-color: white;
         position: absolute;
         top: 0;
         bottom: 0;
         right: 0;
-        width: 75%;
-        padding: 10px 20px;
+        width: 85%;
+        padding: 0;
+        padding-top: 3em;
         margin: 0;
         animation: slide-in 0.5s ease-in-out;
-        /* Agrega la animación slide-in */
     }
 
     .nav-menu.hidden {
-        /* background-color: #f2f2f2; */
         position: absolute;
         top: 0;
         bottom: 0;
@@ -75,7 +70,6 @@
         width: 75%;
         padding: 10px 20px;
         margin: 0;
-        /* animation: slide-out 0.5s ease-in-out; */
     }
 
     @keyframes slide-in {
@@ -89,16 +83,6 @@
             transform: translateX(0%);
         }
     }
-
-    /* @keyframes slide-out {
-        0% {
-            transform: translateX(0%);
-        }
-
-        100% {
-            transform: translateX(-100%);
-        }
-    } */
 
     .nav-menu.mobile li {
         margin-left: 0;
