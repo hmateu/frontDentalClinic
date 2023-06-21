@@ -1,5 +1,62 @@
-.homeStyle{
+.homeStyle {
     height: 90vh;
     width: 100vw;
     background-color: white;
+}
+
+/* topHome */
+.topHome {
+    /* background-color: red; */
+    padding-bottom: 2em;
+}
+
+.topHome img {
+    padding-top: 1em;
+    width: 20em;
+}
+
+/* accompanyYou */
+.accompanyYou img {
+    margin-top: 1em;
+    width: 10em;
+}
+
+.sectionTitle {
+    font-size: 1.4em;
+    margin-bottom: .5em;
+}
+.blueColor{
+    color: #2cc7f5;
+}
+.accompanyYouText,
+.sectionText {
+    text-align: justify;
+    display: flex;
+    justify-content: center;
+    padding: 0 1.5em 0 1.5em;
+    font-size: .9em;
+}
+
+/* treatments */
+.treatments {
+    padding-top: 2em;
+    /* background-color: blue; */
+}
+
+.treatmentsSection {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+.treatments img {
+    width: 20em;
+}
+
+.accompanyYouTitle,
+.treatmentsTitle {
+    font-size: 2em;
+    font-weight: 500;
+    padding: 0 .1em;
+    padding-bottom: .5em;
 }
