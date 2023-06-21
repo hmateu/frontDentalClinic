@@ -1,6 +1,6 @@
 import React from "react";
-import "./Header.css"
-import { Button } from "../Button/Button";
+import "./Header.css";
+import Navbar from "../Navbar/Navbar";
 export const Header = () => {
     return (
         <div className="headerStyle">
@@ -8,7 +8,7 @@ export const Header = () => {
                 LOGO
             </div>
             <div className="right">
-                <Button />
+                <Navbar />
             </div>
         </div>
     );
