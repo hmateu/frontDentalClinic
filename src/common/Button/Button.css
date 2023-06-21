@@ -1,0 +1,7 @@
+.buttonStyle {
+    height: 2em;
+    width: 6em;
+    background-color: blue;
+    color: white;
+    border-radius: 2em;
+}
