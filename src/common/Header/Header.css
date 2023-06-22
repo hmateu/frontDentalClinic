@@ -19,6 +19,7 @@
     .headerStyle{
         display: flex;
         justify-content: center;
+        position: fixed;
     }
     .right{
         height: 10vh;

@@ -59,3 +59,20 @@
     padding: 0 .1em;
     padding-bottom: .5em;
 }
+/* LAPTOP */
+@media only screen and (min-width: 1200px) {
+    .homeStyle{
+        display: flex;
+        justify-content: center;
+        background-color: #2cc7f5;
+    }
+    .bodyHome {
+        width: 70vw;
+        background-color: white;
+        box-shadow: 0 .2em 5em;
+    }
+    .topHome {
+        /* background-color: red; */
+        padding-top: 5em;
+    }
+}
