@@ -6,6 +6,22 @@
     justify-content: space-between;
     align-items: center;
 }
+.left{
+    display: flex;
+}
 .left img{
-    width: 8em;
+    width: 11em;
+    margin-left: .5em;
+    cursor: pointer;
+}
+/* LAPTOP */
+@media only screen and (min-width: 1200px) {
+    .headerStyle{
+        display: flex;
+        justify-content: center;
+    }
+    .right{
+        height: 10vh;
+        display: flex;
+    }
 }

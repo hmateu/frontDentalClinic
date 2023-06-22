@@ -21,6 +21,19 @@
 .nav-menu li {
     margin-left: 10px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6em;
+    transition: .3s;
+    border-radius: .5em;
+}
+
+.nav-menu li:hover{
+    background-color: #2cc7f5;
+    transition: .3s;
+    border-radius: .5em;
+    color: white;
 }
 
 .mobile-menu-icon {
