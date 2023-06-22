@@ -25,7 +25,7 @@ export const Home = () => {
                         Nuestra prioridad absoluta es la de brindar un servicio de excelencia que garantice los mejores resultados. Por eso, permanecemos a tu lado en todo momento. Somos conscientes de la importancia de un servicio de calidad, así que te acompañamos a lo largo de tu tratamiento. De esta manera estarás informado/a en todo momento.
                     </div>
                     <div className="accompanyYouSections">
-                        <div className="section1">
+                        <div className="section">
                             <div className="sectionImg">
                                 <img src={section1} />
                             </div>
@@ -36,7 +36,7 @@ export const Home = () => {
                                 La mejor manera de que nos conozcas, es en persona. Por eso te ofrecemos la primera consulta totalmente gratis. Te haremos una revisión general y te informaremos de lo que podemos hacer para ayudarte.
                             </div>
                         </div>
-                        <div className="section2">
+                        <div className="section">
                             <div className="sectionImg">
                                 <img src={section2} />
                             </div>
@@ -47,7 +47,7 @@ export const Home = () => {
                                 Contamos con lo último en tecnología. De esta manera podemos garantizar un diagnóstico de alta calidad. En nuestra clínica pensamos que lo más importante es conocer el problema. Por eso contamos con la mejor tecnología del sector.
                             </div>
                         </div>
-                        <div className="section3">
+                        <div className="section">
                             <div className="sectionImg">
                                 <img src={section3} />
                             </div>
@@ -65,22 +65,22 @@ export const Home = () => {
                         Nuestros servicios
                     </div>
                     <div className="treatmentsSection">
-                        <div className="section1">
+                        <div className="treatmentsImg">
                             <img src={treatmentsSection1} />
                         </div>
-                        <div className="section2">
+                        <div className="treatmentsImg">
                             <img src={treatmentsSection2} />
                         </div>
-                        <div className="section3">
+                        <div className="treatmentsImg">
                             <img src={treatmentsSection3} />
                         </div>
-                        <div className="section4">
+                        <div className="treatmentsImg">
                             <img src={treatmentsSection4} />
                         </div>
-                        <div className="section5">
+                        <div className="treatmentsImg">
                             <img src={treatmentsSection5} />
                         </div>
-                        <div className="section6">
+                        <div className="treatmentsImg">
                             <img src={treatmentsSection6} />
                         </div>
                     </div>

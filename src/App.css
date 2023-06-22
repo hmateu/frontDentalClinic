@@ -1,6 +1,7 @@
 * {
   overflow-x: hidden;
   color: black;
+  box-sizing: border-box;
 }
 
 #root {

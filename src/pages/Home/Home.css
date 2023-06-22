@@ -5,7 +5,6 @@
 
 /* topHome */
 .topHome {
-    /* background-color: red; */
     padding-bottom: 2em;
 }
 
@@ -24,32 +23,34 @@
     font-size: 1.4em;
     margin-bottom: .5em;
 }
-.blueColor{
+
+.blueColor {
     color: #2cc7f5;
 }
+
 .accompanyYouText,
 .sectionText {
     text-align: justify;
     display: flex;
     justify-content: center;
-    padding: 0 1.5em 0 1.5em;
+    padding: 1em 1.5em 1em 1.5em;
     font-size: .9em;
 }
 
 /* treatments */
 .treatments {
     padding-top: 2em;
-    /* background-color: blue; */
 }
 
 .treatmentsSection {
     display: flex;
     flex-direction: column;
     row-gap: 1em;
+    padding-top: .5em;
 }
 
 .treatments img {
-    width: 20em;
+    width: 16.5em;
 }
 
 .accompanyYouTitle,
@@ -57,22 +58,65 @@
     font-size: 2em;
     font-weight: 500;
     padding: 0 .1em;
-    padding-bottom: .5em;
 }
+
 /* LAPTOP */
 @media only screen and (min-width: 1200px) {
-    .homeStyle{
+    .homeStyle {
         display: flex;
         justify-content: center;
         background-color: #2cc7f5;
     }
+
     .bodyHome {
         width: 70vw;
         background-color: white;
-        box-shadow: 0 .2em 5em;
+        box-shadow: 0 .2em 1.5em;
     }
+
     .topHome {
-        /* background-color: red; */
+        display: flex;
+        justify-content: center;
         padding-top: 5em;
+    }
+
+    /* accompanyYou */
+    .accompanyYou {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .accompanyYouSections {
+        display: flex;
+        column-gap: 2.2em;
+        width: 55em;
+    }
+
+    .accompanyYouSections .section{
+        flex: 1;
+    }
+
+    .sectionText {
+        padding: 0;
+    }
+
+    /* Treatments */
+    .treatments {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .treatmentsSection {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 1.5em;
+        row-gap: 1.2em;
+        padding: 1.5em;
+    }
+
+    .treatments img {
+        width: 17.9em;
     }
 }
