@@ -59,7 +59,7 @@ export const Login = () => {
             <div className="formStyle">
                 <div className="dataForm">
                     <div className="textForm">
-                        User:
+                        Usuario:
                     </div>
                     <InputField
                         type={"text"}
@@ -77,7 +77,7 @@ export const Login = () => {
                 <div className="errorText">{credentialsError.emailError}</div>
                 <div className="dataForm">
                     <div className="textForm">
-                        Password:
+                        Contraseña:
                     </div>
                     <InputField
                         type={"password"}
