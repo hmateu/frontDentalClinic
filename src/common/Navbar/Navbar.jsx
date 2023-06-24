@@ -30,15 +30,19 @@ const Navbar = () => {
             <div className={`nav-menu ${isMobileMenuOpen ? 'mobile' : ''}`}>
                 <div className="header">
                     <span onClick={toggleMobileMenu}>
-                    <img src={cross} className="crossMenu"/>
+                        <img src={cross} className="crossMenu" />
                     </span>
                 </div>
                 <ul>
-                    <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>INICIO</li>
-                    <li onClick={() => { toggleMobileMenu(); navigate("/login") }}>LOGIN</li>
-                    <li onClick={() => { toggleMobileMenu(); navigate("/register") }}>REGISTRO</li>
-                    <li onClick={() => { toggleMobileMenu(); navigate("/treatments") }}>SERVICIOS</li>
-                    <li onClick={() => { toggleMobileMenu(); navigate("/appointments") }}>CITAS</li>
+                    <div>
+                        <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>INICIO</li>
+                        <li onClick={() => { toggleMobileMenu(); navigate("/treatments") }}>SERVICIOS</li>
+                        <li onClick={() => { toggleMobileMenu(); navigate("/appointments") }}>CITAS</li>
+                    </div>
+                    <div>
+                        <li onClick={() => { toggleMobileMenu(); navigate("/login") }}>LOGIN</li>
+                        <li onClick={() => { toggleMobileMenu(); navigate("/register") }}>REGISTRO</li>
+                    </div>
                 </ul>
             </div>
 
