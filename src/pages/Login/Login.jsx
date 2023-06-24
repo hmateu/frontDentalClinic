@@ -3,30 +3,45 @@ import "./Login.css"
 import { InputField } from "../../common/InputField/InputField";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
 import { checkForm } from "../../utils/validateForm";
+import { loginMe } from "../../utils/apiCalls/authCalls/authLogin";
+import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 export const Login = () => {
+
+    const navigate = useNavigate();
+
     const [credentials, setCredentials] = useState({
-        email:"",
-        password:""
+        email: "",
+        password: ""
     });
 
     const [credentialsError, setCredentialsError] = useState({
-        emailError:"",
-        passwordError:""
+        emailError: "",
+        passwordError: ""
     });
 
     const inputHandler = (e) => {
-        setCredentials((prevState)=>({
+        setCredentials((prevState) => ({
             ...prevState,
-            [e.target.name]:e.target.value
+            [e.target.name]: e.target.value
         }));
     }
 
     const inputCheck = (e) => {
-        let errorMessage = checkForm(e.target.name,e.target.value);
-        setCredentialsError((prevState)=>({
+        let errorMessage = checkForm(e.target.name, e.target.value);
+        setCredentialsError((prevState) => ({
             ...prevState,
             [e.target.name + "Error"]: errorMessage
         }));
+    }
+
+    const logMe = () => {
+        loginMe(credentials)
+            .then((result) => {
+                let decodedToken = jwt_decode(result.data.token);
+                console.log("Bienvenido/a", decodedToken.name);
+                navigate("/");
+            })
     }
 
     return (
@@ -67,6 +82,7 @@ export const Login = () => {
                 <div className="btnForm">
                     <FormBtn
                         name={"Login"}
+                        pathClick={logMe}
                     />
                 </div>
             </div>
