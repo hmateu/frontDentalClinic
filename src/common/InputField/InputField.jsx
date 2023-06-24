@@ -1,7 +1,7 @@
 import React from "react";
 import "./InputField.css";
 
-export const InputField = ({ type, name, classDesign, placeholder}) => {
+export const InputField = ({ type, name, classDesign, placeholder, handlerFunction}) => {
     return (
         <input
         maxLength={28}
@@ -9,6 +9,7 @@ export const InputField = ({ type, name, classDesign, placeholder}) => {
         name={name}
         className={classDesign}
         placeholder={placeholder}
+        onChange={(e)=>handlerFunction(e)}
         />
     );
 }
