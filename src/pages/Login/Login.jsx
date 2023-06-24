@@ -42,6 +42,12 @@ export const Login = () => {
                 console.log("Bienvenido/a", decodedToken.name);
                 navigate("/");
             })
+            .catch((error) => {
+                console.log(
+                    "success:", false,
+                    "error", error.message
+                )
+            });
     }
 
     return (
@@ -58,7 +64,11 @@ export const Login = () => {
                     <InputField
                         type={"text"}
                         name={"email"}
-                        classDesign={"inputFieldStyle"}
+                        classDesign={
+                            credentialsError.emailError === ""
+                                ? "inputFieldStyle"
+                                : "inputFieldStyle errorInputFieldStyle"
+                        }
                         placeholder={"Email ..."}
                         handlerFunction={inputHandler}
                         onBlurFunction={inputCheck}
@@ -72,7 +82,11 @@ export const Login = () => {
                     <InputField
                         type={"password"}
                         name={"password"}
-                        classDesign={"inputFieldStyle"}
+                        classDesign={
+                            credentialsError.passwordError === ""
+                                ? "inputFieldStyle"
+                                : "inputFieldStyle errorInputFieldStyle"
+                        }
                         placeholder={"Password ..."}
                         handlerFunction={inputHandler}
                         onBlurFunction={inputCheck}

@@ -5,3 +5,14 @@
     border-radius: .5em;
     padding-left: 1em;
 }
+
+.errorInputFieldStyle {
+    color: red;
+    border: .25em solid red;
+    font-weight: bold;
+}
+
+.errorInputFieldStyle::placeholder{
+    font-weight: normal;
+    color: red;
+}
