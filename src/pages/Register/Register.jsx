@@ -3,12 +3,17 @@ import "./Register.css"
 import { InputField } from "../../common/InputField/InputField";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
 import { checkForm } from "../../utils/validateForm";
+import { registerMe } from "../../utils/apiCalls/authCalls/authRegister";
+import jwt_decode from "jwt-decode";
 export const Register = () => {
 
     const [credentials, setCredentials] = useState({
         name: "",
         surname: "",
         dni: "",
+        age: "",
+        phone:"",
+        location:"",
         email: "",
         password: ""
     });
@@ -17,6 +22,9 @@ export const Register = () => {
         nameError: "",
         surnameError: "",
         dniError: "",
+        ageError: "",
+        phoneError:"",
+        locationError:"",
         emailError: "",
         passwordError: ""
     });
@@ -36,8 +44,23 @@ export const Register = () => {
         }));
     }
 
+    const registMe = () => {
+        registerMe(credentials)
+            .then((result) => {
+                console.log("Bienvenido/a", decodedToken.name);
+                navigate("/");
+            })
+            .catch((error) => {
+                console.log(
+                    "success:", false,
+                    "error", error.message
+                )
+            });
+    }
+
     return (
         <div className="registerStyle">
+            {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
             <div className="titleForm">REGISTRO</div>
             <div className="formStyle">
                 <div className="dataForm">
@@ -96,6 +119,60 @@ export const Register = () => {
                 <div className="errorText">{credentialsError.dniError}</div>
                 <div className="dataForm">
                     <div className="textForm">
+                        Edad:
+                    </div>
+                    <InputField
+                        placeholder={"Edad ..."}
+                        type={"text"}
+                        classDesign={
+                            credentialsError.ageError === ""
+                                ? "inputFieldStyle"
+                                : "inputFieldStyle errorInputFieldStyle"
+                        }
+                        name={"age"}
+                        handlerFunction={inputHandler}
+                        onBlurFunction={inputCheck}
+                    />
+                </div>
+                <div className="errorText">{credentialsError.ageError}</div>
+                <div className="dataForm">
+                    <div className="textForm">
+                        Teléfono:
+                    </div>
+                    <InputField
+                        placeholder={"Teléfono ..."}
+                        type={"text"}
+                        classDesign={
+                            credentialsError.phoneError === ""
+                                ? "inputFieldStyle"
+                                : "inputFieldStyle errorInputFieldStyle"
+                        }
+                        name={"phone"}
+                        handlerFunction={inputHandler}
+                        onBlurFunction={inputCheck}
+                    />
+                </div>
+                <div className="errorText">{credentialsError.phoneError}</div>
+                <div className="dataForm">
+                    <div className="textForm">
+                        Dirección:
+                    </div>
+                    <InputField
+                        placeholder={"Calle o Avenida ..."}
+                        type={"text"}
+                        classDesign={
+                            credentialsError.locationError === ""
+                                ? "inputFieldStyle"
+                                : "inputFieldStyle errorInputFieldStyle"
+                        }
+                        name={"location"}
+                        handlerFunction={inputHandler}
+                        onBlurFunction={inputCheck}
+                    />
+                </div>
+                <div className="errorText">{credentialsError.locationError}</div>
+                <div className="dataForm">
+                    <div className="textForm">
                         Email:
                     </div>
                     <InputField
@@ -132,7 +209,8 @@ export const Register = () => {
                 <div className="errorText">{credentialsError.passwordError}</div>
                 <div className="btnForm">
                     <FormBtn
-                        name={"Register"}
+                        name={"Registrarme"}
+                        pathClick={registMe}
                     />
                 </div>
             </div>
