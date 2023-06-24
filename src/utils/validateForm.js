@@ -29,6 +29,7 @@ export const checkForm = (name, value) => {
             }
             return ""
 
+        case "mobile":
         case "phone":
         case "teléfono":
             if (!/^\d{9}$/.test(value)) {

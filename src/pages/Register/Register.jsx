@@ -4,15 +4,17 @@ import { InputField } from "../../common/InputField/InputField";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
 import { checkForm } from "../../utils/validateForm";
 import { registerMe } from "../../utils/apiCalls/authCalls/authRegister";
-import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 export const Register = () => {
+
+    const navigate = useNavigate();
 
     const [credentials, setCredentials] = useState({
         name: "",
         surname: "",
         dni: "",
         age: "",
-        phone:"",
+        mobile:"",
         location:"",
         email: "",
         password: ""
@@ -23,7 +25,7 @@ export const Register = () => {
         surnameError: "",
         dniError: "",
         ageError: "",
-        phoneError:"",
+        mobileError:"",
         locationError:"",
         emailError: "",
         passwordError: ""
@@ -47,7 +49,6 @@ export const Register = () => {
     const registMe = () => {
         registerMe(credentials)
             .then((result) => {
-                console.log("Bienvenido/a", decodedToken.name);
                 navigate("/");
             })
             .catch((error) => {
@@ -143,16 +144,16 @@ export const Register = () => {
                         placeholder={"Teléfono ..."}
                         type={"text"}
                         classDesign={
-                            credentialsError.phoneError === ""
+                            credentialsError.mobileError === ""
                                 ? "inputFieldStyle"
                                 : "inputFieldStyle errorInputFieldStyle"
                         }
-                        name={"phone"}
+                        name={"mobile"}
                         handlerFunction={inputHandler}
                         onBlurFunction={inputCheck}
                     />
                 </div>
-                <div className="errorText">{credentialsError.phoneError}</div>
+                <div className="errorText">{credentialsError.mobileError}</div>
                 <div className="dataForm">
                     <div className="textForm">
                         Dirección:
