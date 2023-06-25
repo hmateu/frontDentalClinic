@@ -34,15 +34,15 @@ const Navbar = () => {
                     </span>
                 </div>
                 <ul>
-                    <div>
+                    <div className="menuSection">
                         <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>INICIO</li>
                         <li onClick={() => { toggleMobileMenu(); navigate("/users"); }}>USUARIOS</li>
                         <li onClick={() => { toggleMobileMenu(); navigate("/appointments") }}>CITAS</li>
                         <li onClick={() => { toggleMobileMenu(); navigate("/treatments") }}>SERVICIOS</li>
                     </div>
-                    <div>
-                        <li onClick={() => { toggleMobileMenu(); navigate("/login") }}>LOGIN</li>
-                        <li onClick={() => { toggleMobileMenu(); navigate("/register") }}>REGISTRO</li>
+                    <div className="menuSection">
+                        <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); navigate("/login") }}>LOGIN</li>
+                        <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); navigate("/register") }}>REGISTRO</li>
                     </div>
                 </ul>
             </div>

@@ -49,17 +49,24 @@
     background-color: black;
     margin-bottom: 5px;
 }
+
 .nav-menu .header{
     display: none;
 }
+
 .nav-menu ul{
     display: flex;
 }
-@media (max-width: 768px) {
-    /* .nav-menu {
-        display: none;
-    } */
 
+.menuSection{
+    display: flex;
+}
+
+.loginRegisterBtn{
+    background-color: #2cc7f5;
+}
+
+@media (max-width: 768px) {
     .mobile-menu-icon {
         display: flex;
     }
@@ -67,16 +74,13 @@
     .nav-menu{
         position: fixed;
         top: 0;
-        bottom: 0;
         left: 0;
-        right: 0;
         width: 100%;
         height: 100%;
         background-color: white;
-        margin: 0;
         transform: translateX(150%);
         transition: transform 0.3s ease-in-out;
-        z-index: 99;
+        z-index: 2;
         display: flex;
         flex-direction: column;
     }
@@ -95,43 +99,26 @@
         height: 90vh;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
+        row-gap: 2em;
     }
     .nav-menu ul li{
-        margin: 0;
         justify-content: flex-start;
     }
     .nav-menu.mobile{
         transform: translateX(0%);
-
-    }
-    @keyframes slide-in {
-        0% {
-            /* Inicia la barra de navegación fuera de la pantalla */
-            transform: translateX(100%);
-        }
-
-        100% {
-            /* Muestra completamente la barra de navegación */
-            transform: translateX(0%);
-        }
     }
 
-    @keyframes slide-out {
-        0% {
-            /* Inicia la barra de navegación fuera de la pantalla */
-            transform: translateX(0%);
-        }
+    .menuSection{
+        display: flex;
+        flex-direction: column;
+        row-gap: .5em;
+    }
+}
 
-        100% {
-            /* Muestra completamente la barra de navegación */
-            transform: translateX(100%);
-        }
+/* LAPTOP */
+@media only screen and (min-width: 1200px) {
+    .nav-menu ul{
+        column-gap: 5em;
     }
 
-    .nav-menu.mobile li {
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
 }
