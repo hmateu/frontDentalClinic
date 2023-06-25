@@ -30,7 +30,7 @@ export const Appointments = () => {
                                         <div key={appointment.id}>
                                             <Card
                                             date={`Fecha: ${appointment.date}`}
-                                            price={`Precio: ${appointment.price}`}
+                                            price={`Precio: ${appointment.price}€`}
                                             assessment={`Descripción: ${appointment.assessment}`}
                                             dentist={`Dentista: ${appointment.dentist}`}
                                             patient={`Paciente: ${appointment.patient}`}
