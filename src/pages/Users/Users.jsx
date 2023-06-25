@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Users.css"
 import { bringAllUsers } from "../../utils/apiCalls/usersCalls/usersGetAll";
+import { Card } from "../../common/Card/Card";
 export const Users = () => {
     const [users, setUsers] = useState([]);
     if(users.length === 0){
@@ -24,7 +25,13 @@ export const Users = () => {
                                 users.map(user => {
                                     return (
                                         <div key={user.id}>
-                                            {user.name}
+                                            <Card
+                                            name={user.name}
+                                            surname={user.surname}
+                                            age={user.age}
+                                            mobile={user.mobile}
+                                            email={user.email}
+                                            />
                                         </div>
                                     );
                                 })
