@@ -1,5 +1,15 @@
 .appointmentsStyle{
-    height: 90vh;
+    min-height: 90vh;
     width: 100vw;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+.allAppointments{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1em;
 }

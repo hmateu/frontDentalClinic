@@ -8,7 +8,10 @@ export const Users = () => {
         bringAllUsers()
         .then(
             // users => console.log(users.data.data)
-            users => setUsers(users.data.data)
+            users => {
+                console.log(users)
+                setUsers(users.data.data)
+            }
         )
         .catch(error=>console.log(error));
     }
@@ -27,10 +30,10 @@ export const Users = () => {
                                         <div key={user.id}>
                                             <Card
                                             name={user.name}
-                                            surname={user.surname}
-                                            age={user.age}
-                                            mobile={user.mobile}
-                                            email={user.email}
+                                            surname={`Apellidos: ${user.surname}`}
+                                            age={`Edad: ${user.age}`}
+                                            mobile={`Móvil: ${user.mobile}`}
+                                            email={`Correo: ${user.email}`}
                                             />
                                         </div>
                                     );
