@@ -65,13 +65,17 @@
     .homeStyle {
         display: flex;
         justify-content: center;
-        background-color: #2cc7f5;
+        /* background-color: #2cc7f5; */
     }
 
     .bodyHome {
-        width: 70vw;
+        width: 85vw;
         background-color: white;
-        box-shadow: 0 .2em 1.5em;
+        /* box-shadow: 0 .2em 1.5em; */
+    }
+
+    .homeText{
+        font-size: 1em;
     }
 
     .topHome {
@@ -85,17 +89,22 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 1em;
     }
 
     .accompanyYouSections {
         display: flex;
-        column-gap: 2.2em;
-        width: 55em;
+        column-gap: 4em;
+        width: 60em;
     }
 
     .accompanyYouSections .section{
         flex: 1;
     }
+
+    .accompanyYouText{
+    padding: 1em 7em;
+}
 
     .sectionText {
         padding: 0;
@@ -106,6 +115,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 2em;
     }
 
     .treatmentsSection {
@@ -117,6 +127,6 @@
     }
 
     .treatments img {
-        width: 17.9em;
+        width: 19em;
     }
 }
