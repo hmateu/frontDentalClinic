@@ -1,40 +1,40 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const userSlice = createSlice({
-    name:"user",
-    initialState:{
-        credentials:{
-            token:""
+    name: "user",
+    initialState: {
+        credentials: {
+            token: "",
         },
-        dataUser:{
-            name:"",
-            role:""
-        }
+        data: {
+            name: "",
+            role: "",
+        },
     },
-    reducers:{
+    reducers: {
         login: (state, action) => {
             let { payload } = action;
-            state.credentials = {
-                token: payload.token
-            };
-            state.dataUser = {
-                name: payload.name,
-                role: payload.role
-            };
+            (state.credentials = {
+                token: payload.token,
+            }),
+                (state.data = {
+                    name: payload.name,
+                    role: payload.role,
+                });
         },
         logout: (state) => {
             return {
                 ...state,
                 credentials: {
-                    token: ""
+                    token: "",
                 },
-                dataUser: {
-                    name:"",
-                    role:""
-                }
+                data: {
+                    name: "",
+                    role: "",
+                },
             };
-        }
-    }
+        },
+    },
 });
 
 export const userData = (state) => state.user;

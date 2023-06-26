@@ -4,11 +4,15 @@ import { InputField } from "../../common/InputField/InputField";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
 import { checkForm } from "../../utils/validateForm";
 import { loginMe } from "../../utils/apiCalls/authCalls/authLogin";
-import jwt_decode from "jwt-decode";
+// import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import jwtDecode from "jwt-decode";
+import { login } from "../Users/userSlice";
+import { useDispatch } from "react-redux";
 export const Login = () => {
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [credentials, setCredentials] = useState({
         email: "",
@@ -45,10 +49,37 @@ export const Login = () => {
         }));
     }
 
+    // const logMe = () => {
+    //     loginMe(credentials)
+    //         .then((result) => {
+    //             let decodedToken = jwt_decode(result.data.token);
+    //             console.log("Bienvenido/a", decodedToken.name);
+    //             navigate("/");
+    //         })
+    //         .catch((error) => {
+    //             console.log(
+    //                 "success:", false,
+    //                 "error", error.message
+    //             )
+    //         });
+    // }
+
     const logMe = () => {
         loginMe(credentials)
             .then((result) => {
-                let decodedToken = jwt_decode(result.data.token);
+                let decodedToken = jwtDecode(result.data.token);
+                // console.log("-------------------------------");
+                // console.log("result.data.token: ",result.data.token);
+                // console.log("decodedToken.roleId: ",decodedToken.roleId);
+                // console.log("result: ",result);
+                // console.log("-------------------------------");
+                dispatch(
+                    login({
+                        token: result.data.token,
+                        name: decodedToken.name,
+                        role: decodedToken.roleId
+                    })
+                );
                 console.log("Bienvenido/a", decodedToken.name);
                 navigate("/");
             })

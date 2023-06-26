@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import cross from "../../img/cross.svg";
 import "./Navbar.css"
+import { logout, userData } from "../../pages/Users/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 const Navbar = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const dataRedux = useSelector(userData);
+
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const toggleMobileMenu = () => {
         // console.log(isMobileMenuOpen)
@@ -41,7 +47,15 @@ const Navbar = () => {
                         <li onClick={() => { toggleMobileMenu(); navigate("/services") }}>SERVICIOS</li>
                     </div>
                     <div className="menuSection">
-                        <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); navigate("/login") }}>LOGIN</li>
+                        {
+                            dataRedux?.credentials?.token
+                                ? (
+                                    <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); navigate("/login") }}>LOGIN</li>
+                                )
+                                : (
+                                    <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); dispatch(logout()) }}>LOGOUT</li>
+                                )
+                        }
                         <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); navigate("/register") }}>REGISTRO</li>
                     </div>
                 </ul>
