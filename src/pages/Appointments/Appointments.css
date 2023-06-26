@@ -13,3 +13,19 @@
     align-items: center;
     row-gap: 1em;
 }
+
+.appointmentCard{
+    border: .1em solid black;
+    border: .1em solid black;
+    border-radius: .5em;
+}
+
+/* LAPTOP */
+@media only screen and (min-width: 1200px) {
+    .allAppointments{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 1em;
+        margin:0 2em 2em 2em;
+    }
+}

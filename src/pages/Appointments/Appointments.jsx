@@ -6,13 +6,7 @@ export const Appointments = () => {
     const [appointments, setAppointments] = useState([]);
     if(appointments.length === 0){
         bringAllAppointments()
-        .then(
-            // appointments => setAppointments(appointments.data.data)
-            appointments => {
-                console.log(appointments.data.data)
-                setAppointments(appointments.data.data)
-            }
-        )
+        .then(appointments => setAppointments(appointments.data.data))
         .catch(error => console.log(error))
     }
     return (
@@ -27,7 +21,7 @@ export const Appointments = () => {
                             {
                                 appointments.map(appointment => {
                                     return (
-                                        <div key={appointment.id}>
+                                        <div key={appointment.id} className="appointmentCard">
                                             <Card
                                             date={`Fecha: ${appointment.date}`}
                                             price={`Precio: ${appointment.price}€`}

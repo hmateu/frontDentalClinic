@@ -6,13 +6,7 @@ export const Users = () => {
     const [users, setUsers] = useState([]);
     if(users.length === 0){
         bringAllUsers()
-        .then(
-            // users => console.log(users.data.data)
-            users => {
-                console.log(users)
-                setUsers(users.data.data)
-            }
-        )
+        .then(users => setUsers(users.data.data))
         .catch(error=>console.log(error));
     }
     return (
