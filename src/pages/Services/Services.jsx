@@ -21,7 +21,7 @@ export const Services = () => {
                             {
                                 services.map(service => {
                                     return (
-                                        <div key={service.id}>
+                                        <div key={service.id} className="serviceCard">
                                             <Card
                                                 name={`${service.name}`}
                                                 price={`Precio: ${service.price}€`}

@@ -1,4 +1,4 @@
-.servicesStyle{
+.servicesStyle {
     min-height: 90vh;
     width: 100vw;
     background-color: white;
@@ -7,9 +7,30 @@
     row-gap: 1em;
 }
 
-.allServices{
+.allServices {
     display: flex;
     flex-direction: column;
     align-items: center;
     row-gap: 1em;
+}
+
+.serviceCard {
+    border: .1em solid black;
+    border: .1em solid black;
+    border-radius: .5em;
+    height: 15em;
+}
+
+/* LAPTOP */
+@media only screen and (min-width: 1200px) {
+    .allServices {
+        display: grid;
+        grid-template-columns: repeat(3, 23.7vw);
+        row-gap: 1.5em;
+        justify-content: center;
+    }
+
+    .serviceCard {
+        width: 22vw;
+    }
 }

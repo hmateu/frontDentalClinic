@@ -38,7 +38,7 @@ const Navbar = () => {
                         <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>INICIO</li>
                         <li onClick={() => { toggleMobileMenu(); navigate("/users"); }}>USUARIOS</li>
                         <li onClick={() => { toggleMobileMenu(); navigate("/appointments") }}>CITAS</li>
-                        <li onClick={() => { toggleMobileMenu(); navigate("/treatments") }}>SERVICIOS</li>
+                        <li onClick={() => { toggleMobileMenu(); navigate("/services") }}>SERVICIOS</li>
                     </div>
                     <div className="menuSection">
                         <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); navigate("/login") }}>LOGIN</li>
