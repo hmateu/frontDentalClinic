@@ -25,6 +25,11 @@
   font-weight: bold;
 }
 
+.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 /* LAPTOP */
 @media only screen and (min-width: 1200px) {
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css"
 import { InputField } from "../../common/InputField/InputField";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
@@ -19,6 +19,16 @@ export const Login = () => {
         emailError: "",
         passwordError: ""
     });
+
+    const [validation, setValidation] = useState(false);
+
+    useEffect(() => {
+        credentials.email !== "" && credentials.password !== "" && credentialsError.emailError === "" && credentialsError.passwordError === ""
+            ? setValidation(true)
+            : setValidation(false)
+    }, [credentials, credentialsError]);
+
+
 
     const inputHandler = (e) => {
         setCredentials((prevState) => ({
@@ -93,7 +103,8 @@ export const Login = () => {
                     />
                 </div>
                 <div className="errorText">{credentialsError.passwordError}</div>
-                <div className="btnForm">
+                <div className={validation ? "btnForm" : "btnForm disabled"}>
+                    {/* <div className="btnForm disabled"> */}
                     <FormBtn
                         name={"Login"}
                         pathClick={logMe}

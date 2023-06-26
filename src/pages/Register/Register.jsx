@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Register.css"
 import { InputField } from "../../common/InputField/InputField";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
@@ -30,6 +30,14 @@ export const Register = () => {
         emailError: "",
         passwordError: ""
     });
+
+    const [validation, setValidation] = useState(false);
+
+    useEffect(() => {
+        credentials.name !== "" && credentials.surname !== "" && credentials.dni !== "" && credentials.age !== "" && credentials.mobile !== "" && credentials.location !== "" && credentials.email !== "" && credentials.password !== "" && credentialsError.nameError === "" && credentialsError.surnameError === "" && credentialsError.dniError === "" && credentialsError.ageError === "" && credentialsError.mobileError === "" && credentialsError.locationError === "" && credentialsError.emailError === "" && credentialsError.passwordError === ""
+            ? setValidation(true)
+            : setValidation(false)
+    }, [credentials, credentialsError]);
 
     const inputHandler = (e) => {
         setCredentials((prevState) => ({
@@ -208,7 +216,8 @@ export const Register = () => {
                     />
                 </div>
                 <div className="errorText">{credentialsError.passwordError}</div>
-                <div className="btnForm">
+                <div className={validation ? "btnForm" : "btnForm disabled"}>
+                {/* <div className="btnForm disabled"> */}
                     <FormBtn
                         name={"Registrarme"}
                         pathClick={registMe}
