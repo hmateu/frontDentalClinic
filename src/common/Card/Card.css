@@ -11,3 +11,10 @@
     padding-bottom: 0em;
     text-align: center;
 }
+
+/* LAPTOP */
+@media only screen and (min-width: 1200px) {
+    .cardStyle {
+        width: 100%;
+    }
+}

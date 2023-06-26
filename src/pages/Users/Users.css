@@ -13,3 +13,19 @@
     align-items: center;
     row-gap: 1em;
 }
+
+.userCard{
+    border: .1em solid black;
+    border: .1em solid black;
+    border-radius: .5em;
+}
+
+/* LAPTOP */
+@media only screen and (min-width: 1200px) {
+    .allUsers{
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        gap: 1em;
+        margin:0 2em 2em 2em;
+    }
+}
