@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-*:has(.nav-menu.mobile){
+*:has(.nav-menu.mobile) {
   overflow: hidden;
 }
 
@@ -21,6 +21,18 @@
   letter-spacing: .2em;
 }
 
-.boldText{
+.boldText {
   font-weight: bold;
+}
+
+/* LAPTOP */
+@media only screen and (min-width: 1200px) {
+
+  .loginStyle,
+  .registerStyle,
+  .usersStyle,
+  .appointmentsStyle,
+  .servicesStyle {
+    margin-top: 10vh;
+  }
 }
