@@ -43,17 +43,18 @@ const Navbar = () => {
                     <div className="menuSection">
                         <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>INICIO</li>
                         <li onClick={() => { toggleMobileMenu(); navigate("/services") }}>SERVICIOS</li>
-                    {/* </div>
+                        {/* </div>
                     <div className="menuSection"> */}
                         {
                             !dataRedux?.credentials?.token
                                 ? (
-                                    <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); navigate("/login") }}>LOGIN</li>
+                                    <>
+                                        <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); navigate("/login") }}>LOGIN</li>
+                                        <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); navigate("/register") }}>REGISTRO</li>
+                                    </>
                                 )
                                 : (
                                     <>
-                                        <li onClick={() => { toggleMobileMenu(); navigate("/appointments") }}>CITAS</li>
-                                        <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); dispatch(logout()); navigate("/login") }}>LOGOUT</li>
                                         {
                                             role === 1
                                                 ? (
@@ -61,10 +62,11 @@ const Navbar = () => {
                                                 )
                                                 : (<></>)
                                         }
+                                        <li onClick={() => { toggleMobileMenu(); navigate("/appointments") }}>CITAS</li>
+                                        <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); dispatch(logout()); navigate("/login") }}>LOGOUT</li>
                                     </>
                                 )
                         }
-                        <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); navigate("/register") }}>REGISTRO</li>
                     </div>
                 </ul>
             </div>
