@@ -19,6 +19,8 @@ export const Login = () => {
         password: ""
     });
 
+    const [token, setToken] = useState("");
+
     const [credentialsError, setCredentialsError] = useState({
         emailError: "",
         passwordError: ""
@@ -31,8 +33,6 @@ export const Login = () => {
             ? setValidation(true)
             : setValidation(false)
     }, [credentials, credentialsError]);
-
-
 
     const inputHandler = (e) => {
         setCredentials((prevState) => ({
@@ -49,47 +49,33 @@ export const Login = () => {
         }));
     }
 
-    // const logMe = () => {
-    //     loginMe(credentials)
-    //         .then((result) => {
-    //             let decodedToken = jwt_decode(result.data.token);
-    //             console.log("Bienvenido/a", decodedToken.name);
-    //             navigate("/");
-    //         })
-    //         .catch((error) => {
-    //             console.log(
-    //                 "success:", false,
-    //                 "error", error.message
-    //             )
-    //         });
-    // }
-
-    const logMe = () => {
+    const logMe = (e, credentials) => {
         loginMe(credentials)
             .then((result) => {
-                let decodedToken = jwtDecode(result.data.token);
-                // console.log("-------------------------------");
-                // console.log("result.data.token: ",result.data.token);
-                // console.log("decodedToken.roleId: ",decodedToken.roleId);
-                // console.log("result: ",result);
-                // console.log("-------------------------------");
-                dispatch(
-                    login({
-                        token: result.data.token,
-                        name: decodedToken.name,
-                        role: decodedToken.roleId
-                    })
-                );
-                console.log("Bienvenido/a", decodedToken.name);
-                navigate("/");
+                // console.log(result)
+                setToken(result);
             })
             .catch((error) => {
                 console.log(
                     "success:", false,
+                    "message", "Catch de la función loginMe en Login.jsx",
                     "error", error.message
                 )
             });
     }
+    useEffect(()=>{
+        if(token){
+            let decodedToken = jwtDecode(token);
+                dispatch(
+                    login({
+                        token: token,
+                        name: decodedToken.name,
+                        role: decodedToken.roleId
+                    })
+                );
+                navigate('/');
+        }
+    },[token]);
 
     return (
         <div className="loginStyle">
@@ -138,7 +124,7 @@ export const Login = () => {
                     {/* <div className="btnForm disabled"> */}
                     <FormBtn
                         name={"Login"}
-                        pathClick={logMe}
+                        pathClick={(e) => logMe(e, credentials)}
                     />
                 </div>
             </div>

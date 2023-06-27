@@ -48,7 +48,7 @@ const Navbar = () => {
                     </div>
                     <div className="menuSection">
                         {
-                            dataRedux?.credentials?.token
+                            !dataRedux?.credentials?.token
                                 ? (
                                     <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); navigate("/login") }}>LOGIN</li>
                                 )
