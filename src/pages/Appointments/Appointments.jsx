@@ -1,13 +1,23 @@
 import React, { useState } from "react";
 import "./Appointments.css"
-import { bringAllAppointments } from "../../utils/apiCalls/appointmentsCalls/appointmentsGetAll";
 import { Card } from "../../common/Card/Card";
+import { bringPatientAppointments } from "../../utils/apiCalls/appointmentsCalls/appointmentGetOnePatientController";
+import { useSelector } from "react-redux";
+import { userData } from "../Users/userSlice";
 export const Appointments = () => {
     const [appointments, setAppointments] = useState([]);
-    if(appointments.length === 0){
-        bringAllAppointments()
-        .then(appointments => setAppointments(appointments.data.data))
-        .catch(error => console.log(error))
+
+    const datos = useSelector(userData);
+    console.log("DATOS: ", datos)
+    const token = datos?.credentials?.token;
+
+    if (appointments?.length === 0) {
+        bringPatientAppointments(token)
+            .then(appointments => {
+                console.log(appointments)
+                setAppointments(appointments.data)
+            })
+            .catch(error => console.log(error))
     }
     return (
         <div className="appointmentsStyle">
@@ -15,20 +25,21 @@ export const Appointments = () => {
                 CITAS
             </div>
             {
-                appointments.length > 0
-                    ?(
+                appointments?.length > 0
+                    ? (
                         <div className="allAppointments">
                             {
-                                appointments.map(appointment => {
+                                appointments?.map(appointment => {
+                                    console.log(appointment)
                                     return (
                                         <div key={appointment.id} className="appointmentCard">
                                             <Card
-                                            date={`Fecha: ${appointment.date}`}
-                                            price={`Precio: ${appointment.price}€`}
-                                            assessment={`Descripción: ${appointment.assessment}`}
-                                            dentist={`Dentista: ${appointment.dentist}`}
-                                            patient={`Paciente: ${appointment.patient}`}
-                                            service={`Servicio: ${appointment.service}`}
+                                                date={`Fecha: ${appointment.fecha}`}
+                                                price={`Precio: ${appointment.precio}€`}
+                                                assessment={`Descripción: ${appointment.conclusion}`}
+                                                dentist={`Dentista: ${appointment.dentista}`}
+                                                patient={`Paciente: ${appointment.paciente}`}
+                                                service={`Servicio: ${appointment.servicio}`}
                                             />
                                         </div>
                                     );
@@ -36,7 +47,7 @@ export const Appointments = () => {
                             }
                         </div>
                     )
-                    :(<div>CARGANDO ...</div>)
+                    : (<div>CARGANDO ...</div>)
             }
         </div>
     );

@@ -43,7 +43,6 @@ const Navbar = () => {
                     <div className="menuSection">
                         <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>INICIO</li>
                         <li onClick={() => { toggleMobileMenu(); navigate("/users"); }}>USUARIOS</li>
-                        <li onClick={() => { toggleMobileMenu(); navigate("/appointments") }}>CITAS</li>
                         <li onClick={() => { toggleMobileMenu(); navigate("/services") }}>SERVICIOS</li>
                     </div>
                     <div className="menuSection">
@@ -53,7 +52,10 @@ const Navbar = () => {
                                     <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); navigate("/login") }}>LOGIN</li>
                                 )
                                 : (
-                                    <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); dispatch(logout()) }}>LOGOUT</li>
+                                    <>
+                                        <li onClick={() => { toggleMobileMenu(); navigate("/appointments") }}>CITAS</li>
+                                        <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); dispatch(logout()); navigate("/login") }}>LOGOUT</li>
+                                    </>
                                 )
                         }
                         <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); navigate("/register") }}>REGISTRO</li>
