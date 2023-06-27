@@ -37,7 +37,10 @@
   .registerStyle,
   .usersStyle,
   .appointmentsStyle,
-  .servicesStyle {
+  .servicesStyle,
+  .aboutStyle,
+  .patientsStyle,
+  .calendarStyle {
     margin-top: 10vh;
   }
 }

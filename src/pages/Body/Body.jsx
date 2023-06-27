@@ -6,6 +6,9 @@ import { Register } from "../Register/Register";
 import { Services } from "../Services/Services";
 import { Appointments } from "../Appointments/Appointments";
 import { Users } from "../Users/Users";
+import { About } from "../About/About";
+import { Patients } from "../Patients/Patients";
+import { Calendar } from "../Calendar/Calendar";
 export const Body = () => {
     return (
         <Routes>
@@ -16,6 +19,9 @@ export const Body = () => {
             <Route path="/users" element={<Users />} />
             <Route path="/services" element={<Services />} />
             <Route path="/appointments" element={<Appointments />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/patients" element={<Patients />} />
+            <Route path="/calendar" element={<Calendar />} />
         </Routes>
     );
 }

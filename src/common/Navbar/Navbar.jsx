@@ -43,7 +43,7 @@ const Navbar = () => {
                     <div className="menuSection">
                         <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>INICIO</li>
                         <li onClick={() => { toggleMobileMenu(); navigate("/services") }}>SERVICIOS</li>
-                        <li onClick={() => { toggleMobileMenu(); navigate("/") }}>SOBRE NOSOTROS</li>
+                        <li onClick={() => { toggleMobileMenu(); navigate("/about") }}>SOBRE NOSOTROS</li>
                         {
                             !dataRedux?.credentials?.token
                                 ? (
@@ -68,7 +68,7 @@ const Navbar = () => {
                                                 ? (
                                                     <>
                                                         <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>MI AGENDA</li>
-                                                        <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>PACIENTES</li>
+                                                        <li onClick={() => { toggleMobileMenu(); navigate("/patients"); }}>PACIENTES</li>
                                                     </>
                                                 )
                                                 : (
@@ -76,8 +76,8 @@ const Navbar = () => {
                                                     role === 3
                                                         ? (
                                                             <>
-                                                                <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>CALENDARIO</li>
-                                                                <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>PACIENTES</li>
+                                                                <li onClick={() => { toggleMobileMenu(); navigate("/calendar"); }}>CALENDARIO</li>
+                                                                <li onClick={() => { toggleMobileMenu(); navigate("/patients"); }}>PACIENTES</li>
                                                             </>
                                                         )
                                                         : (
