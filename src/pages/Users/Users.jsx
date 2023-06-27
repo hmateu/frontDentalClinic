@@ -20,7 +20,7 @@ export const Users = () => {
             {role === 1
                 ? (
                     <>
-                        <div className="titleForm">
+                        <div className="viewTitle">
                             USUARIOS
                         </div>
                         {

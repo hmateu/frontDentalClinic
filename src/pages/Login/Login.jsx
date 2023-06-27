@@ -80,7 +80,7 @@ export const Login = () => {
     return (
         <div className="loginStyle">
             {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
-            <div className="titleForm">
+            <div className="viewTitle">
                 LOGIN
             </div>
             <div className="formStyle">

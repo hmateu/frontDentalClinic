@@ -21,8 +21,8 @@ export const Appointments = () => {
     }
     return (
         <div className="appointmentsStyle">
-            <div className="titleForm">
-                CITAS
+            <div className="viewTitle">
+                MIS CITAS
             </div>
             {
                 appointments?.length > 0

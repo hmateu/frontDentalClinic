@@ -11,7 +11,7 @@ export const Services = () => {
     }
     return (
         <div className="servicesStyle">
-            <div className="titleForm">
+            <div className="viewTitle">
                 SERVICIOS
             </div>
             {

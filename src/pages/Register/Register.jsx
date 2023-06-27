@@ -70,7 +70,7 @@ export const Register = () => {
     return (
         <div className="registerStyle">
             {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
-            <div className="titleForm">REGISTRO</div>
+            <div className="viewTitle">REGISTRO</div>
             <div className="formStyle">
                 <div className="dataForm">
                     <div className="textForm">
