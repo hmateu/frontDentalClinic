@@ -9,6 +9,7 @@ const Navbar = () => {
     const dispatch = useDispatch();
 
     const dataRedux = useSelector(userData);
+    const role = dataRedux.data.role;
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const toggleMobileMenu = () => {
@@ -19,7 +20,6 @@ const Navbar = () => {
     return (
         <>
             <nav className="navbar">
-                {/* <div className="logo">Logo</div> */}
 
                 {/* Menú hamburguesa */}
                 <div
@@ -42,10 +42,9 @@ const Navbar = () => {
                 <ul>
                     <div className="menuSection">
                         <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>INICIO</li>
-                        <li onClick={() => { toggleMobileMenu(); navigate("/users"); }}>USUARIOS</li>
                         <li onClick={() => { toggleMobileMenu(); navigate("/services") }}>SERVICIOS</li>
-                    </div>
-                    <div className="menuSection">
+                    {/* </div>
+                    <div className="menuSection"> */}
                         {
                             !dataRedux?.credentials?.token
                                 ? (
@@ -55,6 +54,13 @@ const Navbar = () => {
                                     <>
                                         <li onClick={() => { toggleMobileMenu(); navigate("/appointments") }}>CITAS</li>
                                         <li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); dispatch(logout()); navigate("/login") }}>LOGOUT</li>
+                                        {
+                                            role === 1
+                                                ? (
+                                                    <li onClick={() => { toggleMobileMenu(); navigate("/users"); }}>USUARIOS</li>
+                                                )
+                                                : (<></>)
+                                        }
                                     </>
                                 )
                         }
