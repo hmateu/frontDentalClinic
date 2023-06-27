@@ -59,7 +59,7 @@ const Navbar = () => {
                                         ? (
                                             <>
                                                 <li onClick={() => { toggleMobileMenu(); navigate("/users"); }}>USUARIOS</li>
-                                                <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>CITAS</li>
+                                                <li onClick={() => { toggleMobileMenu(); navigate("/appointments"); }}>CITAS</li>
                                             </>
                                         )
                                         : (
@@ -82,7 +82,7 @@ const Navbar = () => {
                                                         )
                                                         : (
                                                             <>
-                                                                <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>MIS CITAS</li>
+                                                                <li onClick={() => { toggleMobileMenu(); navigate("/appointments"); }}>MIS CITAS</li>
                                                             </>
                                                         )
                                                 )

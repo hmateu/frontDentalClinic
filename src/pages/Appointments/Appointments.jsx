@@ -4,20 +4,32 @@ import { Card } from "../../common/Card/Card";
 import { bringPatientAppointments } from "../../utils/apiCalls/appointmentsCalls/appointmentGetOnePatientController";
 import { useSelector } from "react-redux";
 import { userData } from "../Users/userSlice";
+import { bringAllAppointments } from "../../utils/apiCalls/appointmentsCalls/appointmentsGetAll";
 export const Appointments = () => {
     const [appointments, setAppointments] = useState([]);
 
     const datos = useSelector(userData);
-    console.log("DATOS: ", datos)
+    const role = datos.data.role;
     const token = datos?.credentials?.token;
 
     if (appointments?.length === 0) {
-        bringPatientAppointments(token)
+        role === 1
+        ?(
+            bringAllAppointments()
             .then(appointments => {
-                console.log(appointments)
                 setAppointments(appointments.data)
             })
             .catch(error => console.log(error))
+        )
+        :(
+            bringPatientAppointments(token)
+            .then(appointments => {
+                setAppointments(appointments.data)
+            })
+            .catch(error => console.log(error))
+        )
+        
+            
     }
     return (
         <div className="appointmentsStyle">
@@ -30,16 +42,15 @@ export const Appointments = () => {
                         <div className="allAppointments">
                             {
                                 appointments?.map(appointment => {
-                                    console.log(appointment)
                                     return (
                                         <div key={appointment.id} className="appointmentCard">
                                             <Card
-                                                date={`Fecha: ${appointment.fecha}`}
-                                                price={`Precio: ${appointment.precio}€`}
-                                                assessment={`Descripción: ${appointment.conclusion}`}
-                                                dentist={`Dentista: ${appointment.dentista}`}
-                                                patient={`Paciente: ${appointment.paciente}`}
-                                                service={`Servicio: ${appointment.servicio}`}
+                                                date={`Fecha: ${appointment.date}`}
+                                                price={`Precio: ${appointment.price}€`}
+                                                assessment={`Descripción: ${appointment.assesment}`}
+                                                dentist={`Dentista: ${appointment.dentist}`}
+                                                patient={`Paciente: ${appointment.patient}`}
+                                                service={`Servicio: ${appointment.service}`}
                                             />
                                         </div>
                                     );
