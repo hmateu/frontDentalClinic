@@ -1,0 +1,31 @@
+.listAllPatients{
+    min-height: 90vh;
+    width: 100vw;
+    background-color: white;
+}
+
+.allPatients{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1em;
+}
+
+.pattientCard{
+    border: .1em solid black;
+    border: .1em solid black;
+    border-radius: .5em;
+    /* height: 12em; */
+    display: flex;
+    align-items: center;
+}
+
+/* LAPTOP */
+@media only screen and (min-width: 1200px) {
+    .allPatients{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 1em;
+        margin:0 2em 2em 2em;
+    }
+}
