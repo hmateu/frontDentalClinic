@@ -81,7 +81,7 @@ const Navbar = () => {
                                                             ? (
                                                                 <>
                                                                     <li onClick={() => { toggleMobileMenu(); navigate("/calendar"); }}>CALENDARIO</li>
-                                                                    <li onClick={() => { toggleMobileMenu(); navigate("/patients"); }}>PACIENTES</li>
+                                                                    <li onClick={() => { toggleMobileMenu(); navigate("/users-2"); }}>USUARIOS</li>
                                                                 </> 
                                                             )
                                                             : (
