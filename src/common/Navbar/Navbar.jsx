@@ -10,6 +10,7 @@ const Navbar = () => {
 
     const dataRedux = useSelector(userData);
     const role = dataRedux.data.role;
+    const token = dataRedux?.credentials?.token;
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const toggleMobileMenu = () => {
@@ -44,7 +45,9 @@ const Navbar = () => {
                         <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>INICIO</li>
                         <li onClick={() => { toggleMobileMenu(); navigate("/services") }}>SERVICIOS</li>
                         <li onClick={() => { toggleMobileMenu(); navigate("/about") }}>SOBRE NOSOTROS</li>
-                        <li onClick={() => { toggleMobileMenu(); navigate("/users") }}>MI PERFIL</li>
+                        {token && (
+                            <li onClick={() => { toggleMobileMenu(); navigate("/users-profile") }}>MI PERFIL</li>
+                        )}
                         {
                             !dataRedux?.credentials?.token
                                 ? (
