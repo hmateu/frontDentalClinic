@@ -71,7 +71,7 @@ const Navbar = () => {
                                                 role === 2
                                                     ? (
                                                         <>
-                                                            <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>MI AGENDA</li>
+                                                            <li onClick={() => { toggleMobileMenu(); navigate("/diary"); }}>MI AGENDA</li>
                                                             <li onClick={() => { toggleMobileMenu(); navigate("/patients"); }}>PACIENTES</li>
                                                         </>
                                                     )

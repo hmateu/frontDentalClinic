@@ -41,7 +41,8 @@
   .servicesStyle,
   .aboutStyle,
   .patientsStyle,
-  .calendarStyle {
+  .calendarStyle,
+  .diaryStyle {
     margin-top: 10vh;
   }
 }

@@ -10,6 +10,7 @@ import { About } from "../About/About";
 import { Patients } from "../Patients/Patients";
 import { Calendar } from "../Calendar/Calendar";
 import { Profile } from "../Profile/Profile";
+import { Diary } from "../Diary/Diary";
 export const Body = () => {
     return (
         <Routes>
@@ -24,6 +25,7 @@ export const Body = () => {
             <Route path="/about" element={<About />} />
             <Route path="/patients" element={<Patients />} />
             <Route path="/calendar" element={<Calendar />} />
+            <Route path="/diary" element={<Diary />} />
         </Routes>
     );
 }
