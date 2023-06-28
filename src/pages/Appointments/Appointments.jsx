@@ -47,7 +47,7 @@ export const Appointments = () => {
                                             <Card
                                                 date={`Fecha: ${appointment.date}`}
                                                 price={`Precio: ${appointment.price}€`}
-                                                assessment={`Descripción: ${appointment.assesment}`}
+                                                assessment={`Descripción: ${appointment.assessment}`}
                                                 dentist={`Dentista: ${appointment.dentist}`}
                                                 patient={`Paciente: ${appointment.patient}`}
                                                 service={`Servicio: ${appointment.service}`}
