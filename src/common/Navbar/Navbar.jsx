@@ -44,6 +44,7 @@ const Navbar = () => {
                         <li onClick={() => { toggleMobileMenu(); navigate("/"); }}>INICIO</li>
                         <li onClick={() => { toggleMobileMenu(); navigate("/services") }}>SERVICIOS</li>
                         <li onClick={() => { toggleMobileMenu(); navigate("/about") }}>SOBRE NOSOTROS</li>
+                        <li onClick={() => { toggleMobileMenu(); navigate("/users") }}>MI PERFIL</li>
                         {
                             !dataRedux?.credentials?.token
                                 ? (
@@ -78,7 +79,7 @@ const Navbar = () => {
                                                                 <>
                                                                     <li onClick={() => { toggleMobileMenu(); navigate("/calendar"); }}>CALENDARIO</li>
                                                                     <li onClick={() => { toggleMobileMenu(); navigate("/patients"); }}>PACIENTES</li>
-                                                                </>
+                                                                </> 
                                                             )
                                                             : (
                                                                 <>

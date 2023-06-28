@@ -14,51 +14,62 @@ export const Appointments = () => {
 
     if (appointments?.length === 0) {
         role === 1
-        ?(
-            bringAllAppointments()
-            .then(appointments => {
-                setAppointments(appointments.data)
-            })
-            .catch(error => console.log(error))
-        )
-        :(
-            bringPatientAppointments(token)
-            .then(appointments => {
-                setAppointments(appointments.data)
-            })
-            .catch(error => console.log(error))
-        )
-        
-            
+            ? (
+                bringAllAppointments()
+                    .then(appointments => {
+                        setAppointments(appointments.data)
+                    })
+                    .catch(error => console.log(error))
+            )
+            : (
+                bringPatientAppointments(token)
+                    .then(appointments => {
+                        setAppointments(appointments.data)
+                    })
+                    .catch(error => console.log(error))
+            )
+
+
     }
     return (
         <div className="appointmentsStyle">
-            <div className="viewTitle">
-                MIS CITAS
-            </div>
+            {
+                role === 1
+                ? (
+                    <div className="viewTitle">
+                        TODAS LAS CITAS
+                    </div>
+                )
+                : (
+                    <div className="viewTitle">
+                        MIS CITAS
+                    </div>
+                )
+            }
+
             {
                 appointments?.length > 0
-                    ? (
-                        <div className="allAppointments">
-                            {
-                                appointments?.map(appointment => {
-                                    return (
-                                        <div key={appointment.id} className="appointmentCard">
-                                            <Card
-                                                date={`Fecha: ${appointment.date}`}
-                                                price={`Precio: ${appointment.price}€`}
-                                                assessment={`Descripción: ${appointment.assessment}`}
-                                                dentist={`Dentista: ${appointment.dentist}`}
-                                                patient={`Paciente: ${appointment.patient}`}
-                                                service={`Servicio: ${appointment.service}`}
-                                            />
-                                        </div>
-                                    );
-                                })
-                            }
-                        </div>
-                    )
-                    : (<div>CARGANDO ...</div>)
+            ? (
+            <div className="allAppointments">
+                {
+                    appointments?.map(appointment => {
+                        return (
+                            <div key={appointment.id} className="appointmentCard">
+                                <Card
+                                    date={`Fecha: ${appointment.date}`}
+                                    price={`Precio: ${appointment.price}€`}
+                                    assessment={`Descripción: ${appointment.assessment}`}
+                                    dentist={`Dentista: ${appointment.dentist}`}
+                                    patient={`Paciente: ${appointment.patient}`}
+                                    service={`Servicio: ${appointment.service}`}
+                                />
+                            </div>
+                        );
+                    })
+                }
+            </div>
+            )
+            : (<div>CARGANDO ...</div>)
             }
         </div>
     );
