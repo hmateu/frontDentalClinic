@@ -5,6 +5,7 @@ import { bringPatientAppointments } from "../../utils/apiCalls/appointmentsCalls
 import { useSelector } from "react-redux";
 import { userData } from "../Users/userSlice";
 import { bringAllAppointments } from "../../utils/apiCalls/appointmentsCalls/appointmentsGetAll";
+import { FormBtn } from "../../common/FormBtn/FormBtn";
 export const Appointments = () => {
     const [appointments, setAppointments] = useState([]);
 
@@ -50,6 +51,10 @@ export const Appointments = () => {
             {
                 appointments?.length > 0
             ? (
+            <>
+            <FormBtn className="newAppointmentBtn"
+            name={"Nueva cita"}
+            />
             <div className="allAppointments">
                 {
                     appointments?.map(appointment => {
@@ -68,6 +73,7 @@ export const Appointments = () => {
                     })
                 }
             </div>
+            </>
             )
             : (<div>CARGANDO ...</div>)
             }

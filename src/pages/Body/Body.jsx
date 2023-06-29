@@ -12,6 +12,7 @@ import { Calendar } from "../Calendar/Calendar";
 import { Profile } from "../Profile/Profile";
 import { Diary } from "../Diary/Diary";
 import { UsersExceptAdmin } from "../UsersExceptAdmin/UsersExceptAdmin";
+import { NewAppointment } from "../Appointments/NewAppointment/NewAppointment";
 export const Body = () => {
     return (
         <Routes>
@@ -24,6 +25,7 @@ export const Body = () => {
             <Route path="/users-2" element={<UsersExceptAdmin />} />
             <Route path="/services" element={<Services />} />
             <Route path="/appointments" element={<Appointments />} />
+            <Route path="/new-appointment" element={<NewAppointment />} />
             <Route path="/about" element={<About />} />
             <Route path="/patients" element={<Patients />} />
             <Route path="/calendar" element={<Calendar />} />
