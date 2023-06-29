@@ -2,15 +2,19 @@ import React, { useEffect, useState } from "react";
 import "./ListAllUsers.css"
 import { bringAllUsers } from "../../../utils/apiCalls/usersCalls/usersGetAll";
 import { Card } from "../../../common/Card/Card";
+import { useSelector } from "react-redux";
+import { userData } from "../userSlice";
 export const ListAllUsers = () => {
     const [users, setUsers] = useState([]);
 
+    const datos = useSelector(userData);
+    const token = datos?.credentials?.token;
+
     useEffect(() => {
-        if (users.length === 0) {
-            bringAllUsers()
-                .then(users => setUsers(users.data.data))
+            bringAllUsers(token)
+                .then(data => setUsers(data))
                 .catch(error => console.log(error))
-        }
+        
     }, []);
     return(<>
         < div className="viewTitle" >

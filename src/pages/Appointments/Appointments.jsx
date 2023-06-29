@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { userData } from "../Users/userSlice";
 import { bringAllAppointments } from "../../utils/apiCalls/appointmentsCalls/appointmentsGetAll";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
+import { useNavigate } from "react-router-dom";
 export const Appointments = () => {
     const [appointments, setAppointments] = useState([]);
 
@@ -13,10 +14,12 @@ export const Appointments = () => {
     const role = datos.data.role;
     const token = datos?.credentials?.token;
 
+    const navigate = useNavigate();
+
     if (appointments?.length === 0) {
         role === 1
             ? (
-                bringAllAppointments()
+                bringAllAppointments(token)
                     .then(appointments => {
                         setAppointments(appointments.data)
                     })
@@ -54,6 +57,7 @@ export const Appointments = () => {
             <>
             <FormBtn className="newAppointmentBtn"
             name={"Nueva cita"}
+            pathClick={()=>navigate("/new-appointment")}
             />
             <div className="allAppointments">
                 {

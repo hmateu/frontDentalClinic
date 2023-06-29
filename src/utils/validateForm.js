@@ -42,7 +42,7 @@ export const checkForm = (name, value) => {
             if (!/^[A-Za-z\s]{2,}$/.test(value)) {
                 return "Dirección no válida"
             }
-            return ""
+            return "";
 
         case "email":
         case "mail":
@@ -52,12 +52,20 @@ export const checkForm = (name, value) => {
                 return "Formato de email no válido";
             }
             return "";
+
         case "pass":
         case "password":
         case "contraseña":
         case "contrasenna":
             if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/.test(value)) {
                 return "Formato de contraseña no válido";
+            }
+            return "";
+
+        case "treatment":
+        case "tratamiento":
+            if (!/^(?=(?:\S*\s?\S*){0,1}$)[A-Za-z\s]{2,}$$/.test(value)) {
+                return "Formato de tratamiento no válido";
             }
             return "";
 
