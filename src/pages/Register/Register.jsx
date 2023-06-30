@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./Register.css"
 import { InputField } from "../../common/InputField/InputField";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
 import { checkForm } from "../../utils/validateForm";

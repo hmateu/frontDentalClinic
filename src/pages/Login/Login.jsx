@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "./Login.css"
 import { InputField } from "../../common/InputField/InputField";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
 import { checkForm } from "../../utils/validateForm";
 import { loginMe } from "../../utils/apiCalls/authCalls/authLogin";
-// import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import { login } from "../Users/userSlice";
@@ -52,7 +50,6 @@ export const Login = () => {
     const logMe = (e, credentials) => {
         loginMe(credentials)
             .then((result) => {
-                // console.log(result)
                 setToken(result);
             })
             .catch((error) => {
@@ -79,7 +76,6 @@ export const Login = () => {
 
     return (
         <div className="loginStyle">
-            {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
             <div className="viewTitle">
                 LOGIN
             </div>
@@ -121,7 +117,6 @@ export const Login = () => {
                 </div>
                 <div className="errorText">{credentialsError.passwordError}</div>
                 <div className={validation ? "btnForm" : "btnForm disabled"}>
-                    {/* <div className="btnForm disabled"> */}
                     <FormBtn
                         name={"Login"}
                         pathClick={(e) => logMe(e, credentials)}

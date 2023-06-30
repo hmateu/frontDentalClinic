@@ -30,6 +30,51 @@
   pointer-events: none;
 }
 
+.loginStyle,
+.registerStyle{
+    min-height: 90vh;
+    width: 100vw;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1em;
+}
+
+.formStyle {
+  border: .15em solid black;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  padding: 1em;
+}
+
+.newAppointmentFormStyle{
+  display: flex;
+  align-items: center;
+}
+
+.dataForm {
+  display: flex;
+  justify-content: space-between;
+  column-gap: .5em;
+}
+
+.textForm {
+  display: flex;
+  align-items: center;
+}
+
+.btnForm {
+  align-self: center;
+}
+
+.errorText {
+  margin-top: -1em;
+  color: red;
+}
+
 /* LAPTOP */
 @media only screen and (min-width: 1200px) {
 

@@ -1,40 +1,38 @@
 import React, { useEffect, useState } from "react";
 import "./NewAppointment.css";
 import { useNavigate } from "react-router-dom";
-import { checkForm } from "../../../utils/validateForm";
-import { InputField } from "../../../common/InputField/InputField";
 import { FormBtn } from "../../../common/FormBtn/FormBtn";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import SelectService from "../../../common/SelectService/SelectService";
 export const NewAppointment = () => {
 
     const navigate = useNavigate();
 
     const [selectedDate, setSelectedDate] = useState(null);
-
-    const [credentials, setCredentials] = useState({
-        treatment: ""
-    });
-
-    const [credentialsError, setCredentialsError] = useState({
-        treatmentError: ""
-    });
-
+    const currentDate = new Date();
     const [validation, setValidation] = useState(false);
-
-    useEffect(() => {
-        credentials.treatment !== "" && credentialsError.treatmentError === ""
-            ? setValidation(true)
-            : setValidation(false)
-    }, [credentials, credentialsError]);
 
     return (
         <div className="newAppointment">
             <div className="viewTitle">NUEVA CITA</div>
-            <div className="formStyle">
+            <div className="newAppointmentFormStyle formStyle ">
+                <div className="dataForm">
+                <SelectService />
+                </div>
+
+                <div className="dataForm">
+                <DatePicker
+                    // className={"datePickerStyle"}
+                    selected={selectedDate}
+                    minDate={currentDate}
+                    onChange={(date) => setSelectedDate(date)}
+                />
+                </div>
+
                 <div className={validation ? "btnForm" : "btnForm disabled"}>
                     <FormBtn
-                        name={"Registrarme"}
+                        name={"Confirmar"}
                     />
                 </div>
             </div>
