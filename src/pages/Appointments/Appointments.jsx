@@ -79,7 +79,7 @@ export const Appointments = () => {
             </div>
             </>
             )
-            : (<div>CARGANDO ...</div>)
+            : (<div>NO EXISTEN CITAS</div>)
             }
         </div>
     );

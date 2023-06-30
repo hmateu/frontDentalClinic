@@ -39,7 +39,7 @@ export const checkForm = (name, value) => {
 
         case "location":
         case "dirección":
-            if (!/^[A-Za-z\s]{2,}$/.test(value)) {
+            if (!/^[a-zA-Z0-9\s\/.,:-]{1,30}$/.test(value)) {
                 return "Dirección no válida"
             }
             return "";
