@@ -39,47 +39,55 @@ export const Appointments = () => {
         <div className="appointmentsStyle">
             {
                 role === 1
-                ? (
-                    <div className="viewTitle">
-                        TODAS LAS CITAS
-                    </div>
-                )
-                : (
-                    <div className="viewTitle">
-                        MIS CITAS
-                    </div>
-                )
+                    ? (
+                        <div className="viewTitle">
+                            TODAS LAS CITAS
+                        </div>
+                    )
+                    : (
+                        <div className="viewTitle">
+                            MIS CITAS
+                        </div>
+                    )
             }
 
             {
                 appointments?.length > 0
-            ? (
-            <>
-            <FormBtn className="newAppointmentBtn"
-            name={"Nueva cita"}
-            pathClick={()=>navigate("/new-appointment")}
-            />
-            <div className="allAppointments">
-                {
-                    appointments?.map(appointment => {
-                        return (
-                            <div key={appointment.id} className="appointmentCard">
-                                <Card
-                                    date={`Fecha: ${appointment.date}`}
-                                    price={`Precio: ${appointment.price}€`}
-                                    assessment={`Descripción: ${appointment.assessment}`}
-                                    dentist={`Dentista: ${appointment.dentist}`}
-                                    patient={`Paciente: ${appointment.patient}`}
-                                    service={`Servicio: ${appointment.service}`}
-                                />
+                    ? (
+                        <>
+                            <FormBtn className="newAppointmentBtn"
+                                name={"Nueva cita"}
+                                pathClick={() => navigate("/new-appointment")}
+                            />
+                            <div className="allAppointments">
+                                {
+                                    appointments?.map(appointment => {
+                                        return (
+                                            <div key={appointment.id} className="appointmentCard">
+                                                <Card
+                                                    date={`Fecha: ${appointment.date}`}
+                                                    price={`Precio: ${appointment.price}€`}
+                                                    assessment={`Descripción: ${appointment.assessment}`}
+                                                    dentist={`Dentista: ${appointment.dentist}`}
+                                                    patient={`Paciente: ${appointment.patient}`}
+                                                    service={`Servicio: ${appointment.service}`}
+                                                />
+                                            </div>
+                                        );
+                                    })
+                                }
                             </div>
-                        );
-                    })
-                }
-            </div>
-            </>
-            )
-            : (<div>NO EXISTEN CITAS</div>)
+                        </>
+                    )
+                    : (
+                        <>
+                            <FormBtn className="newAppointmentBtn"
+                                name={"Nueva cita"}
+                                pathClick={() => navigate("/new-appointment")}
+                            />
+                            <div>NO EXISTEN CITAS</div>
+                        </>
+                    )
             }
         </div>
     );
