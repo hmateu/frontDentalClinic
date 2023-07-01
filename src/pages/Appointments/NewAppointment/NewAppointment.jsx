@@ -5,7 +5,15 @@ import { FormBtn } from "../../../common/FormBtn/FormBtn";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useServices from "../../../Hooks/useServices";
+import { createNewAppointment } from "../../../utils/apiCalls/appointmentsCalls/appointmentCreate";
+import { useSelector } from "react-redux";
+import { userData } from "../../Users/userSlice";
 export const NewAppointment = () => {
+
+    const navigate = useNavigate();
+
+    const dataRedux = useSelector(userData);
+    const token = dataRedux?.credentials?.token;
 
     const [services] = useServices();
     const [selectedService, setSelectedService] = useState("");
@@ -34,8 +42,9 @@ export const NewAppointment = () => {
     }, [selectedService, selectedDate]);
 
     const handlerSubmit = () => {
-        console.log(selectedService)
-        console.log(selectedDate)
+        const data = { service: selectedService, date: selectedDate };
+        createNewAppointment(token,data);
+        navigate("/appointments");
     }
 
     return (
