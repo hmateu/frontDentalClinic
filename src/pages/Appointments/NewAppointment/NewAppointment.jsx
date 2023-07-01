@@ -11,26 +11,25 @@ export const NewAppointment = () => {
 
     const [selectedDate, setSelectedDate] = useState(null);
     const currentDate = new Date();
-    const [validation, setValidation] = useState(false);
 
     return (
         <div className="newAppointment">
             <div className="viewTitle">NUEVA CITA</div>
             <div className="newAppointmentFormStyle formStyle ">
                 <div className="dataForm">
-                <SelectService />
+                    <SelectService />
                 </div>
 
                 <div className="dataForm">
-                <DatePicker
-                    // className={"datePickerStyle"}
-                    selected={selectedDate}
-                    minDate={currentDate}
-                    onChange={(date) => setSelectedDate(date)}
-                />
+                    <DatePicker
+                        // className={"datePickerStyle"}
+                        selected={selectedDate}
+                        minDate={currentDate}
+                        onChange={(date) => setSelectedDate(date)}
+                    />
                 </div>
 
-                <div className={validation ? "btnForm" : "btnForm disabled"}>
+                <div className={"btnForm"}>
                     <FormBtn
                         name={"Confirmar"}
                     />

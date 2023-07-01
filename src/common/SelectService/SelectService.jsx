@@ -5,16 +5,16 @@ const SelectService = () => {
   
   const [services] = useServices()
 
-  const [selectedOption, setSelectedOption] = useState("")
+  const [selectedService, setSelectedService] = useState("")
 
   const selectHandler = (e) => {
-    setSelectedOption(e.target.value)
+    setSelectedService(e.target.value)
   }
 
   return (
     <>
       <select name="" id="" onChange={selectHandler}>
-        <option value="">Selección de servicios</option>
+        <option value="">Selecciona un servicio</option>
         {
           services.map(service => {
             return (
@@ -24,9 +24,7 @@ const SelectService = () => {
         }
       </select>
 
-      <div>
-      <img src={selectedOption} alt="" /> 
-        </div>   
+      <div>{selectedService}</div>
     </>
   )
 }
