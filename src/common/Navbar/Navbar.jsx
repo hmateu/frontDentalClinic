@@ -80,9 +80,9 @@ const Navbar = () => {
                                                         role === 3
                                                             ? (
                                                                 <>
-                                                                    <li onClick={() => { toggleMobileMenu(); navigate("/calendar"); }}>CALENDARIO</li>
+                                                                    <li onClick={() => { toggleMobileMenu(); navigate("/diary"); }}>NUEVAS CITAS</li>
                                                                     <li onClick={() => { toggleMobileMenu(); navigate("/users-2"); }}>USUARIOS</li>
-                                                                </> 
+                                                                </>
                                                             )
                                                             : (
                                                                 <>
