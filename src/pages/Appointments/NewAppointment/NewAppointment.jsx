@@ -25,6 +25,14 @@ export const NewAppointment = () => {
         return date > today;
     };
 
+    const [validation, setValidation] = useState(false);
+
+    useEffect(() => {
+        selectedService !== "" && selectedDate !== null
+            ? setValidation(true)
+            : setValidation(false)
+    }, [selectedService, selectedDate]);
+
     const handlerSubmit = () => {
         console.log(selectedService)
         console.log(selectedDate)
@@ -61,9 +69,9 @@ export const NewAppointment = () => {
                     />
                 </div>
 
-                <div className={"btnForm"}>
+                <div className={validation ? "btnForm" : "btnForm disabled"}>
                     <FormBtn
-                    pathClick={handlerSubmit}
+                        pathClick={handlerSubmit}
                         name={"Confirmar"}
                     />
                 </div>
