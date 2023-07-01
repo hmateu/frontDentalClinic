@@ -44,7 +44,9 @@ export const NewAppointment = () => {
     const handlerSubmit = () => {
         const data = { service: selectedService, date: selectedDate };
         createNewAppointment(token,data);
-        navigate("/appointments");
+        setTimeout(() => {
+            navigate("/appointments");
+        }, 500);
     }
 
     return (
@@ -62,7 +64,6 @@ export const NewAppointment = () => {
                             })
                         }
                     </select>
-                    <div>{selectedService}</div>
                 </div>
 
                 <div className="dataForm">
