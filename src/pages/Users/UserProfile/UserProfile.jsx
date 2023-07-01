@@ -28,13 +28,30 @@ export const UserProfile = () => {
                     <div className="allUsers">
                         {
                             <div key={user.id} className="userCard">
-                                <Card
-                                    name={user.name}
-                                    surname={`Apellidos: ${user.surname}`}
-                                    age={`Edad: ${user.age}`}
-                                    mobile={`Móvil: ${user.mobile}`}
-                                    email={`Correo: ${user.email}`}
-                                />
+                                {
+                                    role === 1 || role === 2
+                                        ? (
+                                            <Card
+                                                name={user.name}
+                                                surname={`Apellidos: ${user.surname}`}
+                                                age={`Edad: ${user.age}`}
+                                                mobile={`Móvil: ${user.mobile}`}
+                                                email={`Correo: ${user.email}`}
+                                                location={`Localización: ${user.location}`}
+                                                collegial={`Nº colegiado: ${user.collegial}`}
+                                            />
+                                        )
+                                        : (
+                                            <Card
+                                                name={user.name}
+                                                surname={`Apellidos: ${user.surname}`}
+                                                age={`Edad: ${user.age}`}
+                                                mobile={`Móvil: ${user.mobile}`}
+                                                email={`Correo: ${user.email}`}
+                                                location={`Localización: ${user.location}`}
+                                            />
+                                        )
+                                }
                             </div>
 
                         }
