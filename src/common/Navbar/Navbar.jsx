@@ -57,41 +57,43 @@ const Navbar = () => {
                                     </>
                                 )
                                 : (
-                                    <>{
-                                        // admin
-                                        role === 1
-                                            ? (
-                                                <>
-                                                    <li onClick={() => { toggleMobileMenu(); navigate("/users"); }}>USUARIOS</li>
-                                                    <li onClick={() => { toggleMobileMenu(); navigate("/appointments"); }}>CITAS</li>
-                                                </>
-                                            )
-                                            : (
-                                                // Dentista
-                                                role === 2
-                                                    ? (
-                                                        <>
-                                                            <li onClick={() => { toggleMobileMenu(); navigate("/diary"); }}>MI AGENDA</li>
-                                                            <li onClick={() => { toggleMobileMenu(); navigate("/patients"); }}>PACIENTES</li>
-                                                        </>
-                                                    )
-                                                    : (
-                                                        // Administrativo
-                                                        role === 3
-                                                            ? (
-                                                                <>
-                                                                    <li onClick={() => { toggleMobileMenu(); navigate("/diary"); }}>NUEVAS CITAS</li>
-                                                                    <li onClick={() => { toggleMobileMenu(); navigate("/users-2"); }}>USUARIOS</li>
-                                                                </>
-                                                            )
-                                                            : (
-                                                                <>
-                                                                    <li onClick={() => { toggleMobileMenu(); navigate("/appointments"); }}>MIS CITAS</li>
-                                                                </>
-                                                            )
-                                                    )
-                                            )
-                                    }<li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); dispatch(logout()); navigate("/login") }}>LOGOUT</li></>
+                                    <>
+                                        {
+                                            // admin
+                                            role === 1
+                                                ? (
+                                                    <>
+                                                        <li onClick={() => { toggleMobileMenu(); navigate("/users"); }}>USUARIOS</li>
+                                                        <li onClick={() => { toggleMobileMenu(); navigate("/appointments"); }}>CITAS</li>
+                                                    </>
+                                                )
+                                                : (
+                                                    // Dentista
+                                                    role === 2
+                                                        ? (
+                                                            <>
+                                                                <li onClick={() => { toggleMobileMenu(); navigate("/diary"); }}>MI AGENDA</li>
+                                                                <li onClick={() => { toggleMobileMenu(); navigate("/patients"); }}>PACIENTES</li>
+                                                            </>
+                                                        )
+                                                        : (
+                                                            // Administrativo
+                                                            role === 3
+                                                                ? (
+                                                                    <>
+                                                                        <li onClick={() => { toggleMobileMenu(); navigate("/diary"); }}>NUEVAS CITAS</li>
+                                                                        <li onClick={() => { toggleMobileMenu(); navigate("/users-2"); }}>USUARIOS</li>
+                                                                    </>
+                                                                )
+                                                                : (
+                                                                    <>
+                                                                        <li onClick={() => { toggleMobileMenu(); navigate("/appointments"); }}>MIS CITAS</li>
+                                                                    </>
+                                                                )
+                                                        )
+                                                )
+                                        }<li className="loginRegisterBtn" onClick={() => { toggleMobileMenu(); dispatch(logout()); navigate("/login") }}>LOGOUT</li>
+                                    </>
                                 )
                         }
                     </div>

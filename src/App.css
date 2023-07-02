@@ -51,6 +51,14 @@
   padding: 1em;
 }
 
+.formStyleEditing {
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  padding: 1em;
+}
+
 .newAppointmentFormStyle{
   display: flex;
   align-items: center;
@@ -75,6 +83,8 @@
   margin-top: -1em;
   color: red;
 }
+
+
 
 /* LAPTOP */
 @media only screen and (min-width: 1200px) {

@@ -1,5 +1,17 @@
-.userProfileStyle{
+.userProfileStyle {
     min-height: 90vh;
     width: 100vw;
     background-color: white;
+}
+
+.allUsers {
+    display: flex;
+    flex-direction: column;
+}
+
+/* LAPTOP */
+@media only screen and (min-width: 1200px) {
+    .allUsers {
+        display: grid;
+    }
 }
