@@ -72,6 +72,12 @@ export const Appointments = () => {
                                                     // patient={`Paciente: ${appointment.patient}`}
                                                     service={`Servicio: ${appointment.service}`}
                                                 />
+                                                <FormBtn
+                                                    // pathClick={() => console.log(`Esta es la cita número ${appointment.id}`)}
+                                                    pathClick={() => navigate(`/update-appointment/${appointment.id}`)}
+                                                    name={"Modificar"}
+                                                />
+
                                             </div>
                                         );
                                     })

@@ -8,10 +8,8 @@ import { FormBtn } from "../../../common/FormBtn/FormBtn";
 import { InputField } from "../../../common/InputField/InputField";
 import { checkForm } from "../../../utils/validateForm";
 import { updateProfile } from "../../../utils/apiCalls/usersCalls/profileUpdate";
-import { useNavigate } from "react-router-dom";
 import { inputHandler } from "../../../utils/useful";
 export const UserProfile = () => {
-    const navigate = useNavigate();
     const [user, setUser] = useState({});
 
     const dataRedux = useSelector(userData);
