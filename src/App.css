@@ -67,7 +67,9 @@
 .dataForm {
   display: flex;
   justify-content: space-between;
-  column-gap: .5em;
+  column-gap: 1em;
+  width: 100%;
+  text-align: justify;
 }
 
 .textForm {
