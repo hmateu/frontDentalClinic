@@ -27,7 +27,7 @@ export const Home = () => {
                     <div className="accompanyYouSections">
                         <div className="section">
                             <div className="sectionImg">
-                                <img src={section1} />
+                                <img src={section1}/>
                             </div>
                             <div className="sectionTitle">
                                 Primera consulta <span className="blueColor">Gratuita</span>
@@ -38,7 +38,7 @@ export const Home = () => {
                         </div>
                         <div className="section">
                             <div className="sectionImg">
-                                <img src={section2} />
+                                <img src={section2}/>
                             </div>
                             <div className="sectionTitle">
                                 Diagnóstico
@@ -49,7 +49,7 @@ export const Home = () => {
                         </div>
                         <div className="section">
                             <div className="sectionImg">
-                                <img src={section3} />
+                                <img src={section3}/>
                             </div>
                             <div className="sectionTitle">
                                 Tratamiento
@@ -60,28 +60,34 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div className="treatments">
+                <div className="treatments" id="treatments">
                     <div className="treatmentsTitle">
                         Nuestros servicios
                     </div>
                     <div className="treatmentsSection">
                         <div className="treatmentsImg">
-                            <img src={treatmentsSection1} />
+                            <img src={treatmentsSection1}  alt="Ortodoncia"/>
+                            <div className="cardName">Ortodoncia</div>
                         </div>
                         <div className="treatmentsImg">
-                            <img src={treatmentsSection2} />
+                            <img src={treatmentsSection2}  alt="Implantes"/>
+                            <div className="cardName">Implantes</div>
                         </div>
                         <div className="treatmentsImg">
-                            <img src={treatmentsSection3} />
+                            <img src={treatmentsSection3}  alt="Endodoncia"/>
+                            <div className="cardName">Endodoncia</div>
                         </div>
                         <div className="treatmentsImg">
-                            <img src={treatmentsSection4} />
+                            <img src={treatmentsSection4}  alt="Estética dental"/>
+                            <div className="cardName">Estética dental</div>
                         </div>
                         <div className="treatmentsImg">
-                            <img src={treatmentsSection5} />
+                            <img src={treatmentsSection5} alt="Odontopediatria"/>
+                            <div className="cardName">Odontopediatria</div>
                         </div>
                         <div className="treatmentsImg">
-                            <img src={treatmentsSection6} />
+                            <img src={treatmentsSection6} alt="Otros Tratamientos"/>
+                            <div className="cardName">Otros Tratamientos</div>
                         </div>
                     </div>
                 </div>

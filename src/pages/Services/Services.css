@@ -29,5 +29,6 @@
 
     .serviceCard {
         width: 22vw;
+        height: fit-content;
     }
 }
