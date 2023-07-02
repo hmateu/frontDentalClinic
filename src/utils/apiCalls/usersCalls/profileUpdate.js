@@ -1,5 +1,5 @@
 import axios from "axios";
-export const updateProfile = async (token,data) => {
+export const updateProfile = async (data,token) => {
   try {
 
     let res = await axios.put(`http://127.0.0.1:5000/users`, data, {
@@ -8,8 +8,7 @@ export const updateProfile = async (token,data) => {
       },
     });
 
-    console.log("RESPUESTA DE LA AXIOS UPDATEPROFILE",res.data)
-    return res.data;
+    return res;
 
   } catch (error) {
     console.log(error)

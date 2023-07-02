@@ -9,18 +9,20 @@ import { InputField } from "../../../common/InputField/InputField";
 import { checkForm } from "../../../utils/validateForm";
 import { updateProfile } from "../../../utils/apiCalls/usersCalls/profileUpdate";
 import { useNavigate } from "react-router-dom";
+import { inputHandler } from "../../../utils/useful";
 export const UserProfile = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState({});
 
     const dataRedux = useSelector(userData);
-    const role = dataRedux.data.role;
+    // const role = dataRedux.data.role;
     const token = dataRedux?.credentials?.token;
     const [editing, setEditing] = useState(false);
+    const [data, setData] = useState({});
 
-    const handlerSubmit = () => {
-        const data = { name: credentials.name, surname: credentials.surname, age: credentials.age, mobile: credentials.mobile, location: credentials.location };
-        updateProfile(token, data)
+    const handlerSubmit = (data,token) => {
+        // const data = { name: credentials.name, surname: credentials.surname, age: credentials.age, mobile: credentials.mobile, location: credentials.location };
+        updateProfile(data,token)
             .then(
                 setTimeout(() => {
                     setEditing(false)
@@ -58,13 +60,6 @@ export const UserProfile = () => {
         locationError: ""
     });
 
-    const inputHandler = (e) => {
-        setCredentials((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value
-        }));
-    }
-
     const inputCheck = (e) => {
         let errorMessage = checkForm(e.target.name, e.target.value);
         setCredentialsError((prevState) => ({
@@ -86,7 +81,7 @@ export const UserProfile = () => {
                             editing
                                 ? (
                                     <FormBtn
-                                        pathClick={handlerSubmit}
+                                        pathClick={()=>{handlerSubmit(data,token)}}
                                         name={"Confirmar"}
                                     />
                                 )
@@ -116,7 +111,7 @@ export const UserProfile = () => {
                                                                 : "inputFieldStyle errorInputFieldStyle"
                                                         }
                                                         placeholder={user.name ? user.name : "Introduce tu nombre ..."}
-                                                        handlerFunction={inputHandler}
+                                                        handlerFunction={(e)=>inputHandler(e, setData)}
                                                         onBlurFunction={inputCheck}
                                                     />
                                                 </div>
@@ -134,7 +129,7 @@ export const UserProfile = () => {
                                                                 : "inputFieldStyle errorInputFieldStyle"
                                                         }
                                                         placeholder={user.surname ? user.surname : "Introduce tu nombre ..."}
-                                                        handlerFunction={inputHandler}
+                                                        handlerFunction={(e)=>inputHandler(e, setData)}
                                                         onBlurFunction={inputCheck}
                                                     />
                                                 </div>
@@ -152,7 +147,7 @@ export const UserProfile = () => {
                                                                 : "inputFieldStyle errorInputFieldStyle"
                                                         }
                                                         placeholder={user.age ? user.age : "Introduce tu edad ..."}
-                                                        handlerFunction={inputHandler}
+                                                        handlerFunction={(e)=>inputHandler(e, setData)}
                                                         onBlurFunction={inputCheck}
                                                     />
                                                 </div>
@@ -170,7 +165,7 @@ export const UserProfile = () => {
                                                                 : "inputFieldStyle errorInputFieldStyle"
                                                         }
                                                         placeholder={user.mobile ? user.mobile : "Introduce tu móvl ..."}
-                                                        handlerFunction={inputHandler}
+                                                        handlerFunction={(e)=>inputHandler(e, setData)}
                                                         onBlurFunction={inputCheck}
                                                     />
                                                 </div>
@@ -196,7 +191,7 @@ export const UserProfile = () => {
                                                                 : "inputFieldStyle errorInputFieldStyle"
                                                         }
                                                         placeholder={user.location ? user.location : "Introduce tu dirección ..."}
-                                                        handlerFunction={inputHandler}
+                                                        handlerFunction={(e)=>inputHandler(e, setData)}
                                                         onBlurFunction={inputCheck}
                                                     />
                                                 </div>
