@@ -1,9 +1,3 @@
-.listAllPatients{
-    min-height: 90vh;
-    width: 100vw;
-    background-color: white;
-}
-
 .allPatients{
     display: flex;
     flex-direction: column;

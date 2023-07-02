@@ -1,7 +1,4 @@
 .usersStyle{
-    min-height: 90vh;
-    width: 100vw;
-    background-color: white;
     display: flex;
     flex-direction: column;
     row-gap: 1em;

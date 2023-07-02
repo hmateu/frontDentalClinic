@@ -8,7 +8,6 @@ import { Appointments } from "../Appointments/Appointments";
 import { Users } from "../Users/Users";
 import { About } from "../About/About";
 import { Patients } from "../Patients/Patients";
-import { Calendar } from "../Calendar/Calendar";
 import { Profile } from "../Profile/Profile";
 import { Diary } from "../Diary/Diary";
 import { UsersExceptAdmin } from "../UsersExceptAdmin/UsersExceptAdmin";
@@ -30,7 +29,6 @@ export const Body = () => {
             <Route path="/update-appointment/:id" element={<AppointmentUpdate />} />
             <Route path="/about" element={<About />} />
             <Route path="/patients" element={<Patients />} />
-            <Route path="/calendar" element={<Calendar />} />
             <Route path="/diary" element={<Diary />} />
         </Routes>
     );
