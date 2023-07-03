@@ -74,7 +74,7 @@ export const UserProfile = () => {
 
             {user
                 ? (
-                    <div className="allUsers">
+                    <div className="allUsers userProfile">
                         {
                             editing
                                 ? (
