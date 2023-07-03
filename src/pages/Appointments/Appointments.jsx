@@ -13,10 +13,10 @@ export const Appointments = () => {
     const datos = useSelector(userData);
     const role = datos.data.role;
     const token = datos?.credentials?.token;
-    
-    
-    
-    
+
+
+
+
     const navigate = useNavigate();
     // const [searchAppointment, setSearchAppointment] = useState("");
     // const [filterAppointment, setFilterAppointment] = useState("");
@@ -97,11 +97,18 @@ export const Appointments = () => {
                                                     // patient={`Paciente: ${appointment.patient}`}
                                                     service={`Servicio: ${appointment.service}`}
                                                 />
-                                                <FormBtn
-                                                    // pathClick={() => console.log(`Esta es la cita número ${appointment.id}`)}
-                                                    pathClick={() => navigate(`/update-appointment/${appointment.id}`)}
-                                                    name={"Modificar"}
-                                                />
+                                                {
+                                                    role === 1
+                                                        ? (<></>)
+                                                        : (
+                                                            <FormBtn
+                                                                // pathClick={() => console.log(`Esta es la cita número ${appointment.id}`)}
+                                                                pathClick={() => navigate(`/update-appointment/${appointment.id}`)}
+                                                                name={"Modificar"}
+                                                            />
+                                                        )
+                                                }
+
 
                                             </div>
                                         );
