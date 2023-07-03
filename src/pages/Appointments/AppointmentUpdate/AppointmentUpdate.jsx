@@ -37,7 +37,7 @@ export const AppointmentUpdate = () => {
 
     const handlerSubmit = () => {
 
-        console.log(token)
+        // console.log(token)
         const data = { service: selectedService, date: selectedDate };
         // console.log(data)
         updateAppointmentByPatient(data, token, id)

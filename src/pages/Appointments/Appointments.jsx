@@ -24,13 +24,8 @@ export const Appointments = () => {
             [e.target.name]: e.target.value
         }));
     }
-
-
-
     useEffect(() => {
-
-        if (criteria === "") {
-
+        if (!criteria) {
             if (appointments?.length === 0) {
                 role === 1
                     ? (
@@ -49,20 +44,12 @@ export const Appointments = () => {
                     )
             }
         } else {
-            filterByPatientAppointment(token,criteria)
-            .then(res =>{
-                setAppointments(res.data)
-            })
-            .catch(error=>console.log(error))
+            filterByPatientAppointment(token, criteria)
+                .then(res => {
+                    setAppointments(res.data)
+                })
+                .catch(error => console.log(error))
         }
-
-
-
-
-
-
-
-
     }, [criteria]);
 
     return (
@@ -70,9 +57,19 @@ export const Appointments = () => {
             {
                 role === 1
                     ? (
-                        <div className="viewTitle">
-                            TODAS LAS CITAS
-                        </div>
+                        <>
+                            <div className="viewTitle">
+                                TODAS LAS CITAS
+                            </div>
+                            <InputField
+                                type={"text"}
+                                name={"filter"}
+                                classDesign={"inputFieldStyle"}
+                                placeholder={"Paciente"}
+                                handlerFunction={inputHandler}
+                                onBlurFunction={() => { }}
+                            />
+                        </>
                     )
                     : (
                         <div className="viewTitle">
@@ -80,16 +77,7 @@ export const Appointments = () => {
                         </div>
                     )
             }
-            <InputField
-                                type={"text"}
-                                name={"filter"}
-                                classDesign={"inputFieldStyle"}
-                                placeholder={"Paciente"}
-                                handlerFunction={inputHandler}
-                                onBlurFunction={()=>{}}
-                            />
             {
-                
                 appointments?.length > 0
                     ? (
                         <>
@@ -97,7 +85,7 @@ export const Appointments = () => {
                                 name={"Nueva cita"}
                                 pathClick={() => navigate("/new-appointment")}
                             />
-                            
+
                             <div className="allAppointments">
                                 {
                                     appointments?.map(appointment => {
