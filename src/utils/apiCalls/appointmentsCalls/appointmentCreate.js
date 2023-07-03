@@ -8,7 +8,7 @@ export const createNewAppointment = async (token,data) => {
       },
     });
 
-    console.log("RESPUESTA DE LA AXIOS CREATENEWAPPOINTMENT",res.data)
+    // console.log("RESPUESTA DE LA AXIOS CREATENEWAPPOINTMENT",res.data)
     return res.data;
 
   } catch (error) {

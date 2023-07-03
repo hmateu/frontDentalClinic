@@ -13,8 +13,32 @@ export const Appointments = () => {
     const datos = useSelector(userData);
     const role = datos.data.role;
     const token = datos?.credentials?.token;
-
+    
+    
+    
+    
     const navigate = useNavigate();
+    // const [searchAppointment, setSearchAppointment] = useState("");
+    // const [filterAppointment, setFilterAppointment] = useState("");
+
+
+    // useEffect(()=>{
+    //     if(searchAppointment !== ""){
+    //         const filter = appointments.filter((appointment)=>{
+    //             const dentist = appointment.dentist;
+    //             return(dentist?.toLowerCase() ?? "").includes(searchAppointment.toLowerCase());
+    //         })
+    //         setFilterAppointment(filterAppointment)
+    //     } else{
+    //         setFilterAppointment(appointments)
+    //     }
+    //     console.log(appointments)
+    // },[searchAppointment,appointments]);
+
+    // const searchHandle = (e) => {
+    //     setSearchAppointment(e.target.value)
+    //     console.log(searchAppointment)
+    // }
 
     if (appointments?.length === 0) {
         role === 1
@@ -59,6 +83,7 @@ export const Appointments = () => {
                                 name={"Nueva cita"}
                                 pathClick={() => navigate("/new-appointment")}
                             />
+                            {/* <input type="text" value={searchAppointment} onChange={searchHandle} placeholder="Introduce el nombre del médico"/> */}
                             <div className="allAppointments">
                                 {
                                     appointments?.map(appointment => {

@@ -8,7 +8,7 @@ export const bringOneAppointment = async (token,id) => {
       },
     });
 
-    console.log("RESPUESTA DE LA AXIOS GETONEAPPOINTMENT",res.data.data)
+    // console.log("RESPUESTA DE LA AXIOS GETONEAPPOINTMENT",res.data.data)
     return res.data.data;
 
   } catch (error) {

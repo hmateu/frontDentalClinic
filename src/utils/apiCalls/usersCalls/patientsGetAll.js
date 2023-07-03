@@ -9,7 +9,7 @@ export const bringAllPatients = async (token) => {
 
         let res = await axios.get(`http://127.0.0.1:5000/users/patients`,config);
 
-        console.log("Respuesta axios",res.data.data)
+        // console.log("Respuesta axios",res.data.data)
         return res.data.data;
 
     } catch (error) {

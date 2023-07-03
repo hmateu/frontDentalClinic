@@ -7,7 +7,7 @@ export const updateAppointmentByPatient = async (data,token,id) => {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log("LLAMADA UPDATEAPPOINTMENT",res.data)
+    // console.log("LLAMADA UPDATEAPPOINTMENT",res.data)
     return res.data;
 
   } catch (error) {

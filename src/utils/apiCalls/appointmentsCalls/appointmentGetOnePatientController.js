@@ -9,6 +9,6 @@ export const bringPatientAppointments = async (token) => {
   
     let res = await axios.get(`http://127.0.0.1:5000/appointments/patient`, config);
   
-    console.log("Llamada Axios - bringPatientAppointments",res.data)
+    // console.log("Llamada Axios - bringPatientAppointments",res.data)
     return res.data;
   };
