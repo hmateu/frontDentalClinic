@@ -29,8 +29,6 @@ export const AppointmentUpdate = () => {
         setSelectedDate(date);
     };
 
-    // const [validation, setValidation] = useState(false);
-
     useEffect(() => {
         setSelectedService(appointment.service)
         setSelectedDate(appointment.date)
@@ -98,7 +96,6 @@ export const AppointmentUpdate = () => {
                         <div className="textForm">
                             Servicio:
                         </div>
-                        {/* <select name="service" id="" onChange={(e)=>inputHandler(e, setData)}> */}
                         <select name="service" id="" onChange={selectHandler}>
                             <option value="">{appointment.service}</option>
                             {
@@ -110,12 +107,10 @@ export const AppointmentUpdate = () => {
                             }
                         </select>
                     </div>
-                    {/* <div className={validation ? "btnForm" : "btnForm disabled"}> */}
                     <FormBtn
                         pathClick={() => { handlerSubmit(data, token) }}
                         name={"Confirmar"}
                     />
-                    {/* </div> */}
                 </div>
 
             </div>

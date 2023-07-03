@@ -10,16 +10,14 @@ import { checkForm } from "../../../utils/validateForm";
 import { updateProfile } from "../../../utils/apiCalls/usersCalls/profileUpdate";
 import { inputHandler } from "../../../utils/useful";
 export const UserProfile = () => {
+    
     const [user, setUser] = useState({});
-
     const dataRedux = useSelector(userData);
-    // const role = dataRedux.data.role;
     const token = dataRedux?.credentials?.token;
     const [editing, setEditing] = useState(false);
     const [data, setData] = useState({});
 
     const handlerSubmit = (data,token) => {
-        // const data = { name: credentials.name, surname: credentials.surname, age: credentials.age, mobile: credentials.mobile, location: credentials.location };
         updateProfile(data,token)
             .then(
                 setTimeout(() => {
@@ -27,11 +25,6 @@ export const UserProfile = () => {
                 }, 500)
 
             );
-        // console.log(`Nombre: ${credentials.name}`)
-        // console.log(`Apellidos: ${credentials.surname}`)
-        // console.log(`Edad: ${credentials.age}`)
-        // console.log(`Móvil: ${credentials.mobile}`)
-        // console.log(`Localización: ${credentials.location}`)
     };
 
     useEffect(() => {
@@ -71,7 +64,6 @@ export const UserProfile = () => {
             < div className="viewTitle" >
                 MI PERFIL
             </div >
-
             {user
                 ? (
                     <div className="allUsers userProfile">

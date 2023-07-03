@@ -6,7 +6,6 @@ import { userData } from "../userSlice";
 import { bringAllUsersExceptAdmin } from "../../../utils/apiCalls/usersCalls/usersGetAllExceptAdmin";
 export const ListAllUsersExceptAdmin = () => {
     const [users, setUsers] = useState([]);
-
     const dataRedux = useSelector(userData);
     const token = dataRedux?.credentials?.token;
 
@@ -17,12 +16,12 @@ export const ListAllUsersExceptAdmin = () => {
                 .catch(error => console.log(error))
         }
     }, []);
+
     return (
         <div className="listAllUsersExceptAdmin">
             <div className="viewTitle" >
                 PACIENTES
             </div>
-
             {users.length > 0
                 ? (
                     <div className="allUsers">
@@ -48,6 +47,4 @@ export const ListAllUsersExceptAdmin = () => {
             }
         </div>
     )
-
-
 }

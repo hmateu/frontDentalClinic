@@ -9,36 +9,10 @@ import { FormBtn } from "../../common/FormBtn/FormBtn";
 import { useNavigate } from "react-router-dom";
 export const Appointments = () => {
     const [appointments, setAppointments] = useState([]);
-
     const datos = useSelector(userData);
     const role = datos.data.role;
     const token = datos?.credentials?.token;
-
-
-
-
     const navigate = useNavigate();
-    // const [searchAppointment, setSearchAppointment] = useState("");
-    // const [filterAppointment, setFilterAppointment] = useState("");
-
-
-    // useEffect(()=>{
-    //     if(searchAppointment !== ""){
-    //         const filter = appointments.filter((appointment)=>{
-    //             const dentist = appointment.dentist;
-    //             return(dentist?.toLowerCase() ?? "").includes(searchAppointment.toLowerCase());
-    //         })
-    //         setFilterAppointment(filterAppointment)
-    //     } else{
-    //         setFilterAppointment(appointments)
-    //     }
-    //     console.log(appointments)
-    // },[searchAppointment,appointments]);
-
-    // const searchHandle = (e) => {
-    //     setSearchAppointment(e.target.value)
-    //     console.log(searchAppointment)
-    // }
 
     if (appointments?.length === 0) {
         role === 1
@@ -56,8 +30,6 @@ export const Appointments = () => {
                     })
                     .catch(error => console.log(error))
             )
-
-
     }
     return (
         <div className="appointmentsStyle">
@@ -74,7 +46,6 @@ export const Appointments = () => {
                         </div>
                     )
             }
-
             {
                 appointments?.length > 0
                     ? (
@@ -83,7 +54,6 @@ export const Appointments = () => {
                                 name={"Nueva cita"}
                                 pathClick={() => navigate("/new-appointment")}
                             />
-                            {/* <input type="text" value={searchAppointment} onChange={searchHandle} placeholder="Introduce el nombre del médico"/> */}
                             <div className="allAppointments">
                                 {
                                     appointments?.map(appointment => {
@@ -102,7 +72,6 @@ export const Appointments = () => {
                                                         ? (<></>)
                                                         : (
                                                             <FormBtn
-                                                                // pathClick={() => console.log(`Esta es la cita número ${appointment.id}`)}
                                                                 pathClick={() => navigate(`/update-appointment/${appointment.id}`)}
                                                                 name={"Modificar"}
                                                             />

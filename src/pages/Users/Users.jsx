@@ -21,8 +21,6 @@ export const Users = () => {
                         <div>No tienes permisos</div>
                     )
             }
-
-
         </div>
     );
 }

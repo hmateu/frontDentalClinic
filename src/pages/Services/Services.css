@@ -15,7 +15,7 @@
     border: .1em solid black;
     border: .1em solid black;
     border-radius: .5em;
-    height: 15em;
+    height: fit-content;
 }
 
 /* LAPTOP */
@@ -29,6 +29,5 @@
 
     .serviceCard {
         width: 22vw;
-        height: fit-content;
     }
 }

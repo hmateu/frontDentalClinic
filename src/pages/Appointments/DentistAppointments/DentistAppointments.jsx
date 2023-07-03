@@ -23,7 +23,6 @@ export const DentistAppointments = () => {
             < div className="viewTitle" >
                 MIS CITAS
             </div >
-
             {
                 appointments?.length > 0
                     ? (

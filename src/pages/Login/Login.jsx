@@ -46,7 +46,6 @@ export const Login = () => {
             [e.target.name + "Error"]: errorMessage
         }));
     }
-
     const logMe = (e, credentials) => {
         loginMe(credentials)
             .then((result) => {
@@ -60,19 +59,19 @@ export const Login = () => {
                 )
             });
     }
-    useEffect(()=>{
-        if(token){
+    useEffect(() => {
+        if (token) {
             let decodedToken = jwtDecode(token);
-                dispatch(
-                    login({
-                        token: token,
-                        name: decodedToken.name,
-                        role: decodedToken.roleId
-                    })
-                );
-                navigate('/');
+            dispatch(
+                login({
+                    token: token,
+                    name: decodedToken.name,
+                    role: decodedToken.roleId
+                })
+            );
+            navigate('/');
         }
-    },[token]);
+    }, [token]);
 
     return (
         <div className="loginStyle">

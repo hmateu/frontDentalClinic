@@ -48,6 +48,4 @@ export const ListAllPatients = () => {
             }
         </div>
     )
-
-
 }
