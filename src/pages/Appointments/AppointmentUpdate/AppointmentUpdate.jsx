@@ -36,9 +36,11 @@ export const AppointmentUpdate = () => {
     }, []);
 
     const handlerSubmit = () => {
+
+        console.log(token)
         const data = { service: selectedService, date: selectedDate };
         // console.log(data)
-        updateAppointmentByPatient(token, data, id)
+        updateAppointmentByPatient(data, token, id)
             .then(
                 setTimeout(() => {
                     navigate("/appointments");

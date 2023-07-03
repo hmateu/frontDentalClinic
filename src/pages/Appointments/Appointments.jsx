@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Appointments.css"
 import { Card } from "../../common/Card/Card";
 import { bringPatientAppointments } from "../../utils/apiCalls/appointmentsCalls/appointmentGetOnePatientController";
@@ -7,30 +7,64 @@ import { userData } from "../Users/userSlice";
 import { bringAllAppointments } from "../../utils/apiCalls/appointmentsCalls/appointmentsGetAll";
 import { FormBtn } from "../../common/FormBtn/FormBtn";
 import { useNavigate } from "react-router-dom";
+import { InputField } from "../../common/InputField/InputField";
+import { filterByPatientAppointment } from "../../utils/apiCalls/appointmentsCalls/appointmentFilterByPatient";
 export const Appointments = () => {
     const [appointments, setAppointments] = useState([]);
     const datos = useSelector(userData);
     const role = datos.data.role;
     const token = datos?.credentials?.token;
     const navigate = useNavigate();
+    const [criteria, setCriteria] = useState("");
 
-    if (appointments?.length === 0) {
-        role === 1
-            ? (
-                bringAllAppointments(token)
-                    .then(appointments => {
-                        setAppointments(appointments.data)
-                    })
-                    .catch(error => console.log(error))
-            )
-            : (
-                bringPatientAppointments(token)
-                    .then(appointments => {
-                        setAppointments(appointments.data)
-                    })
-                    .catch(error => console.log(error))
-            )
+
+    const inputHandler = (e) => {
+        setCriteria((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value
+        }));
     }
+
+
+
+    useEffect(() => {
+
+        if (criteria === "") {
+
+            if (appointments?.length === 0) {
+                role === 1
+                    ? (
+                        bringAllAppointments(token)
+                            .then(appointments => {
+                                setAppointments(appointments.data)
+                            })
+                            .catch(error => console.log(error))
+                    )
+                    : (
+                        bringPatientAppointments(token)
+                            .then(appointments => {
+                                setAppointments(appointments.data)
+                            })
+                            .catch(error => console.log(error))
+                    )
+            }
+        } else {
+            filterByPatientAppointment(token,criteria)
+            .then(res =>{
+                setAppointments(res.data)
+            })
+            .catch(error=>console.log(error))
+        }
+
+
+
+
+
+
+
+
+    }, [criteria]);
+
     return (
         <div className="appointmentsStyle">
             {
@@ -46,7 +80,16 @@ export const Appointments = () => {
                         </div>
                     )
             }
+            <InputField
+                                type={"text"}
+                                name={"filter"}
+                                classDesign={"inputFieldStyle"}
+                                placeholder={"Paciente"}
+                                handlerFunction={inputHandler}
+                                onBlurFunction={()=>{}}
+                            />
             {
+                
                 appointments?.length > 0
                     ? (
                         <>
@@ -54,6 +97,7 @@ export const Appointments = () => {
                                 name={"Nueva cita"}
                                 pathClick={() => navigate("/new-appointment")}
                             />
+                            
                             <div className="allAppointments">
                                 {
                                     appointments?.map(appointment => {
@@ -64,7 +108,7 @@ export const Appointments = () => {
                                                     price={`Precio: ${appointment.price}€`}
                                                     assessment={`Descripción: ${appointment.assessment}`}
                                                     // dentist={`Dentista: ${appointment.dentist}`}
-                                                    // patient={`Paciente: ${appointment.patient}`}
+                                                    patient={`Paciente: ${appointment.patient}`}
                                                     service={`Servicio: ${appointment.service}`}
                                                 />
                                                 {
@@ -77,8 +121,6 @@ export const Appointments = () => {
                                                             />
                                                         )
                                                 }
-
-
                                             </div>
                                         );
                                     })
