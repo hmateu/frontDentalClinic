@@ -1,0 +1,15 @@
+.userCard{
+    width: 15em;
+    display: flex;
+    align-items: center;
+}
+
+/* LAPTOP */
+@media only screen and (min-width: 1200px) {
+    .allUsers{
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        gap: 1em;
+        margin:0 2em 2em 2em;
+    }
+}

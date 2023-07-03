@@ -5,11 +5,19 @@
 }
 .appointmentCard{
     width: fit-content;
-    height: fit-content;
+    height: 10em;
     padding: .2em;
+    display: flex;
+    justify-content: center;
 }
 
 .updateAppointment{
     row-gap: 1em;
     font-size: .8em;
+}
+/* LAPTOP */
+@media only screen and (min-width: 1200px) {
+    .appointmentCard{
+        width: 25em;
+    }
 }
