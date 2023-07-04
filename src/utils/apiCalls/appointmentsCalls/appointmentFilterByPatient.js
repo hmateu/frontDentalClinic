@@ -1,18 +1,15 @@
 import axios from "axios";
-export const filterByPatientAppointment = async (token,criteria) => {
-  try {
-    // console.log(criteria);
-    let res = await axios.get(`http://127.0.0.1:5000/appointments/filter-by-patient?patientName=${criteria.filter}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    // console.log("RESPUESTA DE LA AXIOS CREATENEWAPPOINTMENT",res.data)
-    return res.data;
-
-  } catch (error) {
-    console.log(error)
-    return error
+import { bringAllAppointments } from "./appointmentsGetAll";
+export const filterByPatientAppointment = async (token, nameCriteria) => {
+  let config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   }
+  if (nameCriteria !== "") {
+    let res = await axios.get(`http://127.0.0.1:5000/appointments/filter-by-patient?patientName=${nameCriteria}`, config)
+    return res.data
+  }
+  const allAppointments = bringAllAppointments(token);
+  return allAppointments;
 }

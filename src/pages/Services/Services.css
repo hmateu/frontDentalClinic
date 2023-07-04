@@ -12,10 +12,11 @@
 }
 
 .serviceCard {
-    border: .1em solid black;
-    border: .1em solid black;
+    border: .3em solid #47c3e9;
     border-radius: .5em;
     height: fit-content;
+    color: black;
+    background-color: #2cc6f579;
 }
 
 /* LAPTOP */

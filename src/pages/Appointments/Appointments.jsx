@@ -15,7 +15,7 @@ export const Appointments = () => {
     const role = datos.data.role;
     const token = datos?.credentials?.token;
     const navigate = useNavigate();
-    const [criteria, setCriteria] = useState("");
+    const [criteria, setCriteria] = useState({ filter: "" });
 
 
     const inputHandler = (e) => {
@@ -24,33 +24,21 @@ export const Appointments = () => {
             [e.target.name]: e.target.value
         }));
     }
+
+    const nameCriteria = criteria.filter;
+
     useEffect(() => {
-        if (!criteria) {
-            if (appointments?.length === 0) {
-                role === 1
-                    ? (
-                        bringAllAppointments(token)
-                            .then(appointments => {
-                                setAppointments(appointments.data)
-                            })
-                            .catch(error => console.log(error))
-                    )
-                    : (
-                        bringPatientAppointments(token)
-                            .then(appointments => {
-                                setAppointments(appointments.data)
-                            })
-                            .catch(error => console.log(error))
-                    )
-            }
-        } else {
-            filterByPatientAppointment(token, criteria)
-                .then(res => {
-                    setAppointments(res.data)
+        const bring = setTimeout(() => {
+            filterByPatientAppointment(token, nameCriteria)
+                .then((res) => {
+                    setAppointments(res.data);
                 })
-                .catch(error => console.log(error))
-        }
-    }, [criteria]);
+                .catch((error) => console.log(error))
+        }, 500)
+
+        return () => clearTimeout(bring);
+
+    }, [nameCriteria]);
 
     return (
         <div className="appointmentsStyle">
