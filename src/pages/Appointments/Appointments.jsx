@@ -29,7 +29,7 @@ export const Appointments = () => {
 
     useEffect(() => {
         const bring = setTimeout(() => {
-            filterByPatientAppointment(token, nameCriteria)
+            filterByPatientAppointment(token, nameCriteria, role)
                 .then((res) => {
                     setAppointments(res.data);
                 })

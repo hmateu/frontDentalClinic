@@ -1,6 +1,7 @@
 import axios from "axios";
 import { bringAllAppointments } from "./appointmentsGetAll";
-export const filterByPatientAppointment = async (token, nameCriteria) => {
+import { bringPatientAppointments } from "./appointmentGetOnePatientController";
+export const filterByPatientAppointment = async (token, nameCriteria, role) => {
   let config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -10,6 +11,14 @@ export const filterByPatientAppointment = async (token, nameCriteria) => {
     let res = await axios.get(`http://127.0.0.1:5000/appointments/filter-by-patient?patientName=${nameCriteria}`, config)
     return res.data
   }
-  const allAppointments = bringAllAppointments(token);
-  return allAppointments;
+
+  if(role === 1){
+    const allAppointments = bringAllAppointments(token);
+    console.log(allAppointments)
+    return allAppointments;
+  }else {
+    const myAppointments = bringPatientAppointments(token);
+    console.log(myAppointments)
+    return myAppointments;
+  }
 }
